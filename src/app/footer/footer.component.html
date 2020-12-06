@@ -1,0 +1,31 @@
+<nav style="position: fixed; bottom: 0px; width: 100%; background-color: #084B8A;"
+    class="navbar navbar-expand-lg navbar-dark ">
+    <a class="navbar-brand mb-0 h1" href="#">Config</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#textoNavbar"
+        aria-controls="textoNavbar" aria-expanded="false" aria-label="Alterna navegação">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div style="width: 100%;" class="collapse navbar-collapse" id="textoNavbar">
+        <div style="width: 100%;" class="d-flex justify-content-between">
+
+            <div style="margin: auto;margin-left: 0px">
+                <label style="color: white;margin: auto;" for="TamanFont">Tamanho</label>
+                <input (change)="tamanhoFont($event.target.value)" type="number" name="TamanFont" id="TamanFont" value="40">
+            </div>
+            <div>
+
+                <ul class="navbar-nav mr-auto">
+
+
+                    <li class="nav-item">
+                        <a style="font-size: 30px;" class="nav-link" routerLink="/">Tabernáculo da Vida</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+
+
+    </div>
+</nav>
