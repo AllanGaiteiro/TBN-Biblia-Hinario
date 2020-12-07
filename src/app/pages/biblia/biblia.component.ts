@@ -37,6 +37,7 @@ export class BibliaComponent implements OnInit {
     )
   }
   getCaptulo(livro,capitulo){
+    this.capitulo = capitulo
     this.service.getCapitulo(livro,capitulo).toPromise().then((allVersiculos) => {
       allVersiculos.map(v => {
         (v.numero > 0)? this.allVersiculos.push(v): null;
