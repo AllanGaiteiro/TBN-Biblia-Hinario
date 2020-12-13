@@ -1,5 +1,9 @@
 <div style="text-align: center">
-  <h1 style="font-size: 3rem">Biblia Sagrada</h1>
+  <h1 style="font-size: 3rem;margin-bottom: 20px;margin-top: 20px;" >Biblia Sagrada</h1>
+  <div class="view" (click)="view($event.target)" *ngIf="livrosAll && livro && capitulo">
+    <h1 class="viewLiv">{{livro}}</h1>
+    <h1 class="viewCap">{{capitulo}}</h1>
+  </div>
   <div class="d-flex">
     <div *ngIf="livrosAll" class="input-group mb-3" style="width: 400px">
       <div class="input-group-prepend">
@@ -7,7 +11,7 @@
       </div>
 
       <select class="custom-select" name="selLiv" (change)="getAllCaptulo($event.target.value)">
-        <option  value="Selecionar">Selecionar</option>
+        <option  value="Selecionar"></option>
         <option *ngFor="let l of livrosAll" [value]="l">{{ l }}</option>
       </select>
     </div>

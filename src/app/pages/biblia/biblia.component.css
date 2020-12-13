@@ -1,0 +1,34 @@
+p{
+    font-size: 40px;
+}
+.view{
+    position: fixed;
+    display: flex;
+    left: 0px;
+    top: 60px;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+
+.viewLiv{
+    font-size: 4em;
+    font-weight: bold;
+    background-color: #084B8A;
+    color: white; 
+    border: 8px solid #084B8A;
+    padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+.viewCap{
+    font-size: 4em;
+    font-weight: bold;
+    background-color: white;
+    border: 8px solid #004e97;
+    color: #004e97;
+    padding: 10px;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+

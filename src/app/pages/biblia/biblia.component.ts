@@ -21,6 +21,7 @@ export class BibliaComponent implements OnInit {
   }
 
   livros(){
+    this.livrosAll = []
     this.service.getAllLivros().toPromise().then((data) => {
       this.livrosAll = data
     } 
@@ -28,6 +29,7 @@ export class BibliaComponent implements OnInit {
   }
   getAllCaptulo(livro){
     this.livro = livro
+    this.allCapitulos = []
     this.service.getAllCapitulos(livro).toPromise().then((capitulos) => {
       capitulos.map(c => {
         (c > 0)? this.allCapitulos.push(c): null;
@@ -38,6 +40,7 @@ export class BibliaComponent implements OnInit {
   }
   getCaptulo(livro,capitulo){
     this.capitulo = capitulo
+    this.allVersiculos = []
     this.service.getCapitulo(livro,capitulo).toPromise().then((allVersiculos) => {
       allVersiculos.map(v => {
         (v.numero > 0)? this.allVersiculos.push(v): null;
@@ -45,6 +48,15 @@ export class BibliaComponent implements OnInit {
       
     })
      
+  }
+
+  view(view){
+    if (view.parentNode.style.marginLeft === '0px') {
+      view.parentNode.style.marginLeft = '-280px'
+    }else{
+      view.parentNode.style.marginLeft = '0px'
     }
+    console.log(view.parentNode)
+  }
 
 }
