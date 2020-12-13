@@ -6,8 +6,14 @@ import { catchError, retry } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class BibliaService {
-  private readonly API = 'http://localhost:1000/biblia'
+export class BibliaService { 
+  
+  // dev
+    private readonly API = 'http://localhost:1000/biblia'
+  
+    // product
+    //private readonly API = 'https://Biblia-API-Express.allangaiteiro.repl.co'
+    
   c: any;
   constructor(private http: HttpClient) { }
 
