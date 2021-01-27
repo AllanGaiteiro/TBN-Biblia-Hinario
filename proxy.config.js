@@ -1,7 +1,7 @@
 const proxy = [
     {
       context: '/api',
-      target: 'http://localhost:4200',
+      target: 'https://testeDist.allangaiteiro.repl.co',
       pathRewrite: {'^/api' : ''}
     }
   ];

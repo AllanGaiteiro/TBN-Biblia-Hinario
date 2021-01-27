@@ -14,6 +14,7 @@ export class BibliaComponent implements OnInit {
   allCapitulos: any = [];
   capitulo: any;
   allVersiculos: any = [];
+  idVerse: any;
   constructor(private service: BibliaService) { }
 
   ngOnInit(): void {
@@ -28,8 +29,11 @@ export class BibliaComponent implements OnInit {
     )
   }
   getAllCaptulo(livro){
+
+    console.log(livro)
     this.livro = livro
     this.allCapitulos = []
+    /*
     this.service.getAllCapitulos(livro).toPromise().then((capitulos) => {
       capitulos.map(c => {
         (c > 0)? this.allCapitulos.push(c): null;
@@ -37,13 +41,24 @@ export class BibliaComponent implements OnInit {
       
     } 
     )
+    */
+   console.log(livro)
+   this.service.getAllCapitulos(livro).toPromise().then((l) => {
+     for(var i = 1; i< l.chapters; i++){
+      this.livro = l
+      this.allCapitulos.push(i)
+     }
+  } 
+  )
+
+
   }
   getCaptulo(livro,capitulo){
     this.capitulo = capitulo
     this.allVersiculos = []
     this.service.getCapitulo(livro,capitulo).toPromise().then((allVersiculos) => {
-      allVersiculos.map(v => {
-        (v.numero > 0)? this.allVersiculos.push(v): null;
+      allVersiculos.verses.map(v => {
+        this.allVersiculos.push({number: v.number, text: v.text})
       })
       
     })
@@ -51,12 +66,18 @@ export class BibliaComponent implements OnInit {
   }
 
   view(view){
+    view.parentNode.style.display = "none"
+    /*
     if (view.parentNode.style.marginLeft === '0px') {
       view.parentNode.style.marginLeft = '-280px'
     }else{
       view.parentNode.style.marginLeft = '0px'
-    }
-    console.log(view.parentNode)
+    }*/
+  }
+  linkVerse(e){
+    this.idVerse = e
+    console.log(e)
+    alert(e)
   }
 
 }

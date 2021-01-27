@@ -9,23 +9,26 @@ import { catchError, retry } from 'rxjs/operators';
 export class BibliaService { 
   
   // dev
-    private readonly API = 'http://localhost:1000/biblia'
+    //private readonly API = 'http://localhost:1000/biblia'
   
     // product
-    //private readonly API = 'https://Biblia-API-Express.allangaiteiro.repl.co'
+    private readonly API = 'https://Biblia-API-Express.allangaiteiro.repl.co/biblia'
     
   c: any;
   constructor(private http: HttpClient) { }
 
 
-  getAllLivros(): Observable<HttpResponse<any>>{
-    return this.http.get<any>(this.API)
+  getAllLivros(){
+    //return this.http.get<any>(this.API)
+    return this.http.get<any>('https://www.abibliadigital.com.br/api/books')
   }
   getAllCapitulos(livro){
-    return this.http.post<any>(`${this.API}/livro/`, {name: `${livro}`})
+    //return this.http.post<any>(`${this.API}/livro/`, {name: `${livro}`})
+    return this.http.get<any>(`https://www.abibliadigital.com.br/api/books/${livro}`)
   }
-  getCapitulo(livro,capitulo){
-    return this.http.post<any>(`${this.API}/livro/capitulo`, {name: `${livro}`, cap: `${capitulo}`})
+  getCapitulo(livro,chapters){
+    //return this.http.post<any>(`${this.API}/livro/capitulo`, {name: `${livro}`, cap: `${capitulo}`})
+    return this.http.get<any>(`https://www.abibliadigital.com.br/api/verses/nvi/${livro}/${chapters}`)
   }
   
 }
