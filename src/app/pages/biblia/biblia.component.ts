@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { BibliaService } from './biblia.service';
 
-
+export interface BasicVerses{
+  number: number;
+  text: string
+}
 @Component({
   selector: 'app-biblia',
   templateUrl: './biblia.component.html',
@@ -13,7 +16,7 @@ export class BibliaComponent implements OnInit {
   livro: any
   allCapitulos: any = [];
   capitulo: any;
-  allVersiculos: any = [];
+  allVersiculos: BasicVerses[];
   idVerse: any;
   constructor(private service: BibliaService) { }
 
@@ -33,18 +36,10 @@ export class BibliaComponent implements OnInit {
     console.log(livro)
     this.livro = livro
     this.allCapitulos = []
-    /*
-    this.service.getAllCapitulos(livro).toPromise().then((capitulos) => {
-      capitulos.map(c => {
-        (c > 0)? this.allCapitulos.push(c): null;
-      })
-      
-    } 
-    )
-    */
+    
    console.log(livro)
    this.service.getAllCapitulos(livro).toPromise().then((l) => {
-     for(var i = 1; i< l.chapters; i++){
+     for(var i = 1; i <= l.chapters; i++){
       this.livro = l
       this.allCapitulos.push(i)
      }
