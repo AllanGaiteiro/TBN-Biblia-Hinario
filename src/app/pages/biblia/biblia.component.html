@@ -1,51 +1,39 @@
 <div style="text-align: center">
   <h1 style="font-size: 3rem;margin-bottom: 20px;margin-top: 20px;" >Biblia Sagrada</h1>
-  <div class="view" (click)="view($event.target)" *ngIf="livrosAll && livro && capitulo">
-    <h1 class="viewLiv">{{livro.name}}</h1>
-    <h1 class="viewCap">{{capitulo}}</h1>
+  <div class="view" (click)="view($event.target)" *ngIf="books && book && chapterNumber">
+    <h1 class="viewLiv">{{book.name}}</h1>
+    <h1 class="viewCap">{{chapterNumber}}</h1>
   </div>
   <div class="d-flex">
-    <div *ngIf="livrosAll" class="input-group mb-3" style="width: 400px">
+    <div *ngIf="books" class="input-group mb-3" style="width: 400px">
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">Livro</label>
       </div>
 
-      <select class="custom-select" name="selLiv" (change)="getAllCaptulo($event.target.value)">
+      <select class="custom-select" name="selLiv" (change)="getChapters($event.target.value)">
         <option  value="Selecionar"></option>
-        <option *ngFor="let l of livrosAll" [value]="l.abbrev.pt">{{ l.name }}</option>
+        <option *ngFor="let b of books" [value]="b.abbrev">{{ b.name }}</option>
       </select>
     </div>
 
-    <div *ngIf="allCapitulos && livro" class="input-group mb-3">
+    <div *ngIf="chapters && book" class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">Capitulos</label>
       </div>
 
-      <select class="custom-select" name="selCap" (change)="getCaptulo(livro.abbrev.pt, $event.target.value)">
+      <select class="custom-select" name="selCap" (change)="getChapter(book, $event.target.value)">
         <option  value="Selecionar">Selecionar</option>
-        <option *ngFor="let c of allCapitulos" [value]="c">{{ c }}</option>
+        <option *ngFor="let c of chapters" [value]="c">{{ c }}</option>
       </select>
     </div>
-    <!---- Em tEste
-    <div *ngIf="allCapitulos && livro && allVersiculos" class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Versiculos</label>
-      </div>
-      <a (href)="'#vers-'+idVerse">
-        <select class="custom-select" name="selCap" (change)="linkVerse($event.target.value)">
-        <option  value="Selecionar">Selecionar</option>
-        <option *ngFor="let verse of allVersiculos" [value]="verse.numero" >{{verse.numero }}</option>
-      </select>
-      </a>
-    </div>---->
   </div>
 </div>
 <hr />
-<table *ngIf="allVersiculos" class="table table-striped">
+<table *ngIf="verses" class="table table-striped">
   <thead>
   </thead>
   <tbody>
-      <tr *ngFor="let verse of allVersiculos" id="vers-{{ verse.number }}">
+      <tr *ngFor="let verse of verse" id="vers-{{ verse.number }}">
         <th scope="row">
           <p>
             <span style="color: red">{{ verse.number }}</span>
