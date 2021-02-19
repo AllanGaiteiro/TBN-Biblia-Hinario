@@ -9,60 +9,52 @@ import { BibliaService } from './biblia.service';
 })
 export class BibliaComponent implements OnInit {
 
-  livrosAll: any;
-  livro: any
-  allCapitulos: any = [];
-  capitulo: any;
-  allVersiculos: any = [];
+  books: {name: string,abbrev: string}[] = [];
+  book: {name: string,abbrev: string};
+  chapters: Number[] = [];
+  chapterNumber: Number;
+  verses: any[] = [];
   idVerse: any;
   constructor(private service: BibliaService) { }
 
   ngOnInit(): void {
-    this.livros()
+    this.getBooks()
   }
 
-  livros(){
-    this.livrosAll = []
-    this.service.getAllLivros().toPromise().then((data) => {
-      this.livrosAll = data
+  getBooks(){
+    this.service.requestBooks().toPromise().then((data) => {
+      this.books = data;
     } 
-    )
+    ).catch((err)=>{
+      console.error('Erro ao requisitar os Livros da Biblia: ',err);
+    });
   }
-  getAllCaptulo(livro){
 
-    console.log(livro)
-    this.livro = livro
-    this.allCapitulos = []
-    /*
-    this.service.getAllCapitulos(livro).toPromise().then((capitulos) => {
-      capitulos.map(c => {
-        (c > 0)? this.allCapitulos.push(c): null;
-      })
-      
-    } 
-    )
-    */
-   console.log(livro)
-   this.service.getAllCapitulos(livro).toPromise().then((l) => {
-     for(var i = 1; i< l.chapters; i++){
-      this.livro = l
-      this.allCapitulos.push(i)
+  getChapters(){
+    if (this.chapters.length) {
+      this.chapters = []
+    }
+   this.service.requestChapters(this.book.name).toPromise().then((chaptersLength) => {
+     for(var i = 1; i < chaptersLength; i++){
+      this.chapters.push(i);
      }
-  } 
-  )
-
-
+  }).catch((err)=>{
+    console.error(`Erro ao requisitar os capitulos do livro de ${this.book.name} da Biblia: `,err);
+  });
   }
-  getCaptulo(livro,capitulo){
-    this.capitulo = capitulo
-    this.allVersiculos = []
-    this.service.getCapitulo(livro,capitulo).toPromise().then((allVersiculos) => {
-      allVersiculos.verses.map(v => {
-        this.allVersiculos.push({number: v.number, text: v.text})
-      })
-      
-    })
-     
+
+  getChapter(){
+    if (this.verses.length) {
+      this.verses = []
+    }
+    this.service.requestChapter(this.book.name,this.chapterNumber).toPromise().then((verses) => {
+      for (const i in verses) {
+        let pos = Number(i)
+        this.verses.push({number: pos + 1 , text: verses[pos]})
+      }
+    }).catch((err)=>{
+      console.error(`Erro ao requisitar os versiculos do livro de ${this.book} capitulo ${this.chapterNumber} da Biblia: `,err)
+    }); 
   }
 
   view(view){
