@@ -11,8 +11,8 @@ export class BibliaComponent implements OnInit {
 
   books: {name: string,abbrev: string}[] = [];
   book: {name: string,abbrev: string};
-  chapters: any[] = [];
-  chapterNumber: number;
+  chapters: Number[] = [];
+  chapterNumber: Number;
   verses: any[] = [];
   idVerse: any;
   constructor(private service: BibliaService) { }
@@ -30,10 +30,12 @@ export class BibliaComponent implements OnInit {
     });
   }
 
-  getChapters(book){
-    this.book = book;
-   this.service.requestChapters(book.name).toPromise().then((chapters) => {
-     for(var i = 1; i< chapters; i++){
+  getChapters(){
+    if (this.chapters.length) {
+      this.chapters = []
+    }
+   this.service.requestChapters(this.book.name).toPromise().then((chaptersLength) => {
+     for(var i = 1; i < chaptersLength; i++){
       this.chapters.push(i);
      }
   }).catch((err)=>{
@@ -41,11 +43,14 @@ export class BibliaComponent implements OnInit {
   });
   }
 
-  getChapter(book,chapters){
-    this.chapterNumber = chapters
-    this.service.requestChapter(book.name,chapters).toPromise().then((verses) => {
+  getChapter(){
+    if (this.verses.length) {
+      this.verses = []
+    }
+    this.service.requestChapter(this.book.name,this.chapterNumber).toPromise().then((verses) => {
       for (const i in verses) {
-        this.verses.push({number: i, text: verses[i]})
+        let pos = Number(i)
+        this.verses.push({number: pos + 1 , text: verses[pos]})
       }
     }).catch((err)=>{
       console.error(`Erro ao requisitar os versiculos do livro de ${this.book} capitulo ${this.chapterNumber} da Biblia: `,err)

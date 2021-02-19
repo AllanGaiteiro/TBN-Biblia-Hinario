@@ -10,20 +10,20 @@
         <label class="input-group-text" for="inputGroupSelect01">Livro</label>
       </div>
 
-      <select class="custom-select" name="selLiv" (change)="getChapters($event.target.value)">
+      <select class="custom-select" name="selLiv" [(ngModel)]="book" (ngModelChange)="getChapters()" >
         <option  value="Selecionar"></option>
-        <option *ngFor="let b of books" [value]="b.abbrev">{{ b.name }}</option>
+        <option *ngFor="let b of books" [value]="b" [ngValue]="b">{{ b.name }}</option>
       </select>
     </div>
 
-    <div *ngIf="chapters && book" class="input-group mb-3">
+    <div *ngIf="chapters?.length && book" class="input-group mb-3">
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">Capitulos</label>
       </div>
 
-      <select class="custom-select" name="selCap" (change)="getChapter(book, $event.target.value)">
+      <select class="custom-select" name="selCap" [(ngModel)]="chapterNumber" (ngModelChange)="getChapter()">
         <option  value="Selecionar">Selecionar</option>
-        <option *ngFor="let c of chapters" [value]="c">{{ c }}</option>
+        <option *ngFor="let c of chapters" [value]="c" [ngValue]="c">{{ c }}</option>
       </select>
     </div>
   </div>
@@ -33,7 +33,7 @@
   <thead>
   </thead>
   <tbody>
-      <tr *ngFor="let verse of verse" id="vers-{{ verse.number }}">
+      <tr *ngFor="let verse of verses" id="vers-{{ verse.number }}">
         <th scope="row">
           <p>
             <span style="color: red">{{ verse.number }}</span>
