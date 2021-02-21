@@ -15,10 +15,11 @@ export class BibliaComponent implements OnInit {
   chapterNumber: Number;
   verses: any[] = [];
   idVerse: any;
+  cardSeeChapter: HTMLElement;
   constructor(private service: BibliaService) { }
 
   ngOnInit(): void {
-    this.getBooks()
+    this.getBooks();
   }
 
   getBooks(){
@@ -57,8 +58,9 @@ export class BibliaComponent implements OnInit {
     }); 
   }
 
-  view(view){
-    view.parentNode.style.display = "none"
+  view(){
+    this.cardSeeChapter =document.getElementById('cardSeeChapter')
+    this.cardSeeChapter.style.display = this.cardSeeChapter.style.display === "none"? "flex": "none";
     /*
     if (view.parentNode.style.marginLeft === '0px') {
       view.parentNode.style.marginLeft = '-280px'
