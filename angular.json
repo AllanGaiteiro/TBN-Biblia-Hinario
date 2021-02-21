@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "biblia-hinario-app"
+  "defaultProject": "biblia-hinario-app",
+  "cli": {
+    "analytics": "862855b6-08d5-4298-a7ff-a516dde5800a"
+  }
 }

@@ -1,18 +1,24 @@
 p{
     font-size: 40px;
 }
-.view{
+.seeInfoCapitulo{
     position: fixed;
     display: flex;
     left: 0px;
-    top: 60px;
+    top: 70px;
+    height: 70px;
+    width: 100%;
     transition: all 1s;
     cursor: pointer;
-    
+    z-index: 10;
+}
+#cardSeeChapter{
+    display: flex;
+    transition: all 1s;
 }
 
 .viewLiv{
-    font-size: 4em;
+    font-size: 3em;
     font-weight: bold;
     background-color: #084B8A;
     color: white; 
@@ -20,9 +26,10 @@ p{
     padding: 10px;
     padding-top: 0px;
     padding-bottom: 0px;
+    height: 100%;
 }
 .viewCap{
-    font-size: 4em;
+    font-size: 3em;
     font-weight: bold;
     background-color: white;
     border: 8px solid #004e97;
@@ -30,5 +37,6 @@ p{
     padding: 10px;
     padding-top: 0px;
     padding-bottom: 0px;
+    height: 100%;
 }
 
