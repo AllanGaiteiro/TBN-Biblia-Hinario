@@ -8,24 +8,28 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class BibliaService { 
   
-  // staging
-    private readonly API = 'http://localhost:10000/biblia'
+  // local
+    private readonly API = 'http://localhost:10000/biblia';
   
+  // staging
+    //private readonly API = 'https://staging-api-biblia.allangaiteiro.repl.co/biblia'; 
+  
+
   // product
-    //private readonly API = 'https://Biblia-API-Express.allangaiteiro.repl.co/biblia'
+    //private readonly API = 'https://Biblia-API-Express.allangaiteiro.repl.co/biblia';
   
   constructor(private http: HttpClient) { }
 
   requestBooks(){
-    return this.http.get<any[]>(this.API)
+    return this.http.get<any[]>(this.API);
     //return this.http.get<any>('https://www.abibliadigital.com.br/api/books')
   }
   requestChapters(book:String){
-    return this.http.post<Number>(`${this.API}/livro/`, {name: `${book}`})
+    return this.http.post<Number>(`${this.API}/livro/`, {name: `${book}`});
     //return this.http.get<any>(`https://www.abibliadigital.com.br/api/books/${livro}`)
   }
   requestChapter(book: String,chapterNumber: Number){
-    return this.http.post<String[]>(`${this.API}/livro/capitulo`, {name: `${book}`, cap: `${chapterNumber}`})
+    return this.http.post<String[]>(`${this.API}/livro/capitulo`, {name: `${book}`, cap: `${chapterNumber}`});
     //return this.http.get<any>(`https://www.abibliadigital.com.br/api/verses/nvi/${livro}/${chapters}`)
   }
   
