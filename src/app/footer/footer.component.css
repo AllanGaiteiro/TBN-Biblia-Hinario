@@ -1,0 +1,17 @@
+
+.CountainerConf{
+    top: 0px;
+    position: fixed;
+    cursor: pointer;
+    height: 100%;
+    width: 150px;
+    
+    background-color: rgba(255, 255, 255, 0);
+}
+
+.mat-sidenav-content{
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0);
+    text-align: center;
+}
+

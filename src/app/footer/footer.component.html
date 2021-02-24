@@ -1,0 +1,65 @@
+<!-----
+<div class="CountainerConf">
+
+    <button mat-button  (click)="menuVisibility()" >
+        <span class="material-icons md-48" style="font-size: 48px;color: #1280e6b6;" >
+        settings
+        </span>
+    </button>
+    <menu class="menuConf" >
+        <span mat-menu-item>Configurações</span>
+        
+        <div  style="height: 60px;">
+            <span class="material-icons md-48" style="font-size: 48px;color: #1280e6b6;" (click)="settingFont('-')">
+                indeterminate_check_box
+            </span>
+            <mat-form-field style="vertical-align: middle;">
+                <mat-label >Tamanho</mat-label>
+                <input matInput style="background-color: white;" [(ngModel)]="fontSizeP" (change)="settingFont('=')"
+                    [value]="fontSizeP">
+            </mat-form-field>
+            <span style="margin: auto;" class="material-icons md-48" style="font-size: 48px;color: #1280e6b6;"
+                (click)="settingFont('+')">
+                add_box
+            </span>
+        </div>
+        
+        <button mat-menu-item>Item 1</button>
+        <button mat-menu-item>Item 2</button>
+        
+    </menu>
+</div>--->
+
+<mat-sidenav-container 
+    class="CountainerConf" (backdropClick)="closeSideNav('backdrop')" *ngIf="shouldRun">
+  <mat-sidenav #sidenav style="margin-top: 70px;width: 150px;text-align: center;border-right: 2px solid #1280e6b6;border-top: 2px solid #1280e6b6;" (keydown.escape)="closeSideNav('escape')" disableClose>
+    <br>
+    <h5 style="color: #1280e6b6;margin-top: 70px" >Configurações</h5>
+        <br>
+        <div  style="height: 36px;">
+            <span class="material-icons md-48" style="font-size: 36px;color: #1280e6b6;" (click)="settingFont('-')">
+                indeterminate_check_box
+            </span>
+            <mat-form-field style="vertical-align: middle;width: 70px;text-align: center;">
+                <mat-label >Tamanho</mat-label>
+                <input matInput style="background-color: white;" [(ngModel)]="fontSizeP" (change)="settingFont('=')"
+                    [value]="fontSizeP">
+            </mat-form-field>
+            <span style="margin: auto;" class="material-icons md-48" style="font-size: 36px;color: #1280e6b6;"
+                (click)="settingFont('+')">
+                add_box
+            </span>
+        </div>
+        <!---<button mat-button (click)="close('toggle button')">Fechar</button>--->
+  </mat-sidenav>
+
+  <mat-sidenav-content class="mat-sidenav-content"  >
+    <button mat-button  (click)="sidenav.open()" >
+        <span class="material-icons md-48" style="font-size: 48px;color: #1280e6b6;margin-top: 10px;" >
+        settings
+        </span>
+    </button>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>

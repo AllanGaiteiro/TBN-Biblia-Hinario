@@ -1,18 +1,16 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import {MatSidenav} from '@angular/material/sidenav';
-
 @Component({
-  selector: 'app-sidenav',
-  templateUrl: './sidenav.component.html',
-  styleUrls: ['./sidenav.component.scss']
+  selector: 'app-footer',
+  templateUrl: './footer.component.html',
+  styleUrls: ['./footer.component.css']
 })
-export class SidenavComponent implements OnInit {
+export class FooterComponent implements OnInit {
   @ViewChild('sidenav') sidenav: MatSidenav;
   fontSizeP: any;
   paragraph: HTMLCollectionOf<HTMLParagraphElement>;
   reason: String;
-  shouldRun = true;
-  panelOpenState = false;
+  shouldRun:Boolean = true;
   constructor() { }
 
   ngOnInit(): void {
@@ -32,4 +30,5 @@ export class SidenavComponent implements OnInit {
       this.paragraph[i].style.fontSize= `${this.fontSizeP}px`;
     }
   }
+  
 }
