@@ -14,26 +14,25 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
 // Components
-import { NavbarComponent } from './navbar/navbar.component';
-import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { BibliaComponent } from './pages/biblia/biblia.component';
 import { HinarioComponent } from './pages/hinario/hinario.component';
 import { SliderComponent } from './pages/slider/slider.component';
 import { HinosComponent } from './pages/hinos/hinos.component';
 import { AppComponent } from './app.component';
+import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
-    FooterComponent,
     HomeComponent,
     BibliaComponent,
     HinarioComponent,
     SliderComponent,
     HinosComponent,
+    SidenavComponent,
   ],
   imports: [
     MatDividerModule,
@@ -49,7 +48,8 @@ import { AppComponent } from './app.component';
     FormsModule,
     TooltipModule.forRoot(),
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    MatExpansionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
