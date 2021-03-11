@@ -9,7 +9,7 @@ import { catchError, retry } from 'rxjs/operators';
 export class BibliaService { 
   
   // local
-    private readonly API = 'http://localhost:10000/biblia';
+    private readonly API = 'http://localhost:1200/bible/version';
   
   // staging
     //private readonly API = 'https://staging-api-biblia.allangaiteiro.repl.co/biblia'; 
