@@ -11,6 +11,7 @@ export class SidenavComponent implements OnInit {
   fontSizeP: any;
   paragraph: HTMLCollectionOf<HTMLParagraphElement>;
   reason: String;
+  expandedMenu = false;
   shouldRun = true;
   panelOpenState = false;
   constructor() { }
@@ -20,12 +21,15 @@ export class SidenavComponent implements OnInit {
     this.paragraph = document.getElementsByTagName('p');
     this.settingFont('='); 
   }
-  
+
 
   closeSideNav(reason: string) {
     this.reason = reason;
     this.sidenav.close();
   }
+  
+
+
   
   settingFont = (tipo:'+'|'='|'-' ) => {
     this.fontSizeP = tipo !== '='? (tipo === '+'? this.fontSizeP + 1 : this.fontSizeP - 1)  : this.fontSizeP;    for(var i = 0; i < this.paragraph.length;i++) {

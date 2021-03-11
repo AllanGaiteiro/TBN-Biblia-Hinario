@@ -21,15 +21,15 @@ export class BibliaService {
   constructor(private http: HttpClient) { }
 
   requestBooks(){
-    return this.http.get<any[]>(this.API);
+    return this.http.post<any[]>(this.API, {version: 'aa'});
     //return this.http.get<any>('https://www.abibliadigital.com.br/api/books')
   }
   requestChapters(book:String){
-    return this.http.post<Number>(`${this.API}/livro/`, {name: `${book}`});
+    return this.http.post<Number>(`${this.API}/livro/`, {name: `${book}`,version: 'aa'});
     //return this.http.get<any>(`https://www.abibliadigital.com.br/api/books/${livro}`)
   }
   requestChapter(book: String,chapterNumber: Number){
-    return this.http.post<String[]>(`${this.API}/livro/capitulo`, {name: `${book}`, cap: `${chapterNumber}`});
+    return this.http.post<String[]>(`${this.API}/livro/capitulo`, {name: `${book}`, chapterNumber: `${chapterNumber}`,version: 'aa'});
     //return this.http.get<any>(`https://www.abibliadigital.com.br/api/verses/nvi/${livro}/${chapters}`)
   }
   

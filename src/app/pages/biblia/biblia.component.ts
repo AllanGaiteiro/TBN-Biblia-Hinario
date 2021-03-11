@@ -20,6 +20,9 @@ export class BibliaComponent implements OnInit {
 
   ngOnInit(): void {
     this.getBooks();
+    var content = document.getElementById('content');
+    var seeInfoCapitulo = document.getElementById('headerChapter');
+    content.appendChild(seeInfoCapitulo);
   }
 
   getBooks(){

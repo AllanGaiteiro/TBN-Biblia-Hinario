@@ -1,52 +1,62 @@
-<mat-sidenav-container 
-    class="CountainerConf" (backdropClick)="closeSideNav('backdrop')" *ngIf="shouldRun">
-  <mat-sidenav #sidenav (keydown.escape)="closeSideNav('escape')" disableClose>
-    <span (click)="closeSideNav('escape')" class="material-icons md-48" style="font-size: 48px;color: white;margin: auto;">
-        menu
-    </span>
-    <br>
-    <button mat-flat-button  routerLink="/" color="white">Home</button>
-    <button mat-flat-button  routerLink="/biblia"  color="white">Biblia</button>
-    <button mat-flat-button color="white" >Busca Hinário (Beta)</button>
-    <mat-accordion>
+<nav id="sidebar">
+    <div class="sidebar-header">
+      <h3>Tabernaculo da Vida</h3>
+    </div>
+  
+    <ul class="list-unstyled components">
+      <li class="active">
+        <a routerLink="/">Home</a>
+      </li>
+      <li>
+        <a routerLink="/biblia">Biblia</a>
+        <!---
+                <a href="#">About</a>
+                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
+                <ul class="collapse list-unstyled" id="pageSubmenu">
+                    <li>
+                        <a href="#">Page 1</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Page 3</a>
+                    </li>
+                </ul>
+                -->
+      </li>
+      <li>
+        <a>Busca Hinário (Beta)</a>
+      </li>
+      <mat-accordion>
         <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
-            <mat-expansion-panel-header style="background-color: #1280e6;">
-                <mat-panel-title style="color: white;">
-                    Configurações
-                </mat-panel-title>
-            </mat-expansion-panel-header>
-            <br>
-            <div class="d-flex" style="margin: 0px;">
-                
-                <span class="material-icons md-48" style="font-size: 36px;color: #1280e6b6;" (click)="settingFont('-')">
-                    indeterminate_check_box
-                </span>
-                <mat-form-field style="vertical-align: middle;width: 70px;text-align: center;">
-                    <mat-label >Tamanho</mat-label>
-                    <input matInput style="background-color: white;" [(ngModel)]="fontSizeP" (change)="settingFont('=')"
-                        [value]="fontSizeP">
-                </mat-form-field>
-                <span style="margin: auto;" class="material-icons md-48" style="font-size: 36px;color: #1280e6b6;"
-                    (click)="settingFont('+')">
-                    add_box
-                </span>
-            </div>
-            <br>
+          <mat-expansion-panel-header style="background-color:#6D7FCC;">
+            <mat-panel-title style="color: white;">
+              Configurações
+            </mat-panel-title>
+          </mat-expansion-panel-header>
+          <br>
+          <div class="d-flex" style="margin: 0px;">
+  
+            <span class="material-icons md-48" style="font-size: 36px;color: #1280e6b6;" (click)="settingFont('-')">
+              indeterminate_check_box
+            </span>
+            <mat-form-field style="vertical-align: middle;width: 70px;text-align: center;">
+              <mat-label>Tamanho</mat-label>
+              <input matInput style="background-color: white;" [(ngModel)]="fontSizeP" (change)="settingFont('=')"
+                [value]="fontSizeP">
+            </mat-form-field>
+            <span style="margin: auto;" class="material-icons md-48" style="font-size: 36px;color: #1280e6b6;"
+              (click)="settingFont('+')">
+              add_box
+            </span>
+          </div>
+          <br>
         </mat-expansion-panel>
       </mat-accordion>
-      <br>
-      <h5 style="color: white;">Tabernáculo da Vida</h5>
-      <br>
-  </mat-sidenav>
-
-  <mat-sidenav-content class="mat-sidenav-content"  >
-    <button mat-button  (click)="sidenav.open()" >
-        <span class="material-icons md-48" style="font-size: 48px;color: #1280e6b6;margin-top: 10px;" >
-        menu
-        </span>
-    </button>
-  </mat-sidenav-content>
-</mat-sidenav-container>
-
-<div *ngIf="!shouldRun">Please open on Stackblitz to see result</div>
-
+      <li>
+        <a href="#">Contact</a>
+      </li>
+    </ul>
+  
+  </nav>
