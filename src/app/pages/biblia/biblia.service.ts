@@ -24,12 +24,12 @@ export class BibliaService {
     return this.http.post<any[]>(this.API, {version: 'aa'});
     //return this.http.get<any>('https://www.abibliadigital.com.br/api/books')
   }
-  requestChapters(book:String){
-    return this.http.post<Number>(`${this.API}/livro/`, {name: `${book}`,version: 'aa'});
+  requestChapters(book:string){
+    return this.http.post<number>(`${this.API}/livro/`, {name: book,version: 'aa'});
     //return this.http.get<any>(`https://www.abibliadigital.com.br/api/books/${livro}`)
   }
-  requestChapter(book: String,chapterNumber: Number){
-    return this.http.post<String[]>(`${this.API}/livro/capitulo`, {name: `${book}`, chapterNumber: `${chapterNumber}`,version: 'aa'});
+  requestChapter(book: string,chapterNumber: number){
+    return this.http.post<string[]>(`${this.API}/livro/capitulo`, {name: book, chapterNumber: chapterNumber,version: 'aa'});
     //return this.http.get<any>(`https://www.abibliadigital.com.br/api/verses/nvi/${livro}/${chapters}`)
   }
   

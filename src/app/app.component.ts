@@ -25,12 +25,14 @@ export class AppComponent implements OnInit{
   moveContent(){
     var content = document.getElementById('content')
     var sidebar = document.getElementById('sidebar')
-    if (content.style.marginLeft === '0px') {
-      content.style.marginLeft = "250px";
+    if (content.style.width === '100%') {
+      content.style.width = "80%";
+      content.style.marginLeft = "20%";
       sidebar.style.left = '0px'
     } else {
-      content.style.marginLeft = "0px";
-      sidebar.style.left = '-250px'
+      content.style.width = "100%";
+      content.style.marginLeft = "0%";
+      sidebar.style.left = '-20%'
     }
     
   }
