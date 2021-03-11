@@ -11,8 +11,8 @@ export class BibliaComponent implements OnInit {
 
   books: {name: string,abbrev: string}[] = [];
   book: {name: string,abbrev: string};
-  chapters: Number[] = [];
-  chapterNumber: Number;
+  chapters: number[] = [];
+  chapterNumber: number;
   verses: any[] = [];
   idVerse: any;
   cardSeeChapter: HTMLElement;

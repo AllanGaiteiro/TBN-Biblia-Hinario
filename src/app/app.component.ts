@@ -11,6 +11,7 @@ export class AppComponent implements OnInit{
   fontSizeP: any;
   paragraph: HTMLCollectionOf<HTMLParagraphElement>;
   reason: String;
+  matIconMenu: 'close' | 'menu' = 'close';
   expandedMenu = false;
   shouldRun = true;
   panelOpenState = false;
@@ -28,11 +29,13 @@ export class AppComponent implements OnInit{
     if (content.style.width === '100%') {
       content.style.width = "80%";
       content.style.marginLeft = "20%";
-      sidebar.style.left = '0px'
+      sidebar.style.left = '0px';
+      this.matIconMenu = 'close';
     } else {
       content.style.width = "100%";
       content.style.marginLeft = "0%";
-      sidebar.style.left = '-20%'
+      sidebar.style.left = '-20%';
+      this.matIconMenu = 'menu';
     }
     
   }
