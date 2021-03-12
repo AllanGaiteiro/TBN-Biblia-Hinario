@@ -1,66 +1,82 @@
 import { Component, OnInit } from '@angular/core';
 import { BibliaService } from './biblia.service';
 
-
 @Component({
   selector: 'app-biblia',
   templateUrl: './biblia.component.html',
-  styleUrls: ['./biblia.component.css']
+  styleUrls: ['./biblia.component.css'],
 })
 export class BibliaComponent implements OnInit {
+  public books: { name: string; abbrev: string }[] = [];
+  public book: { name: string; abbrev: string };
+  public chapters: Number[] = [];
+  public chapterNumber: Number;
+  public verses: any[] = [];
+  public idVerse: any;
+  public cardSeeChapter: HTMLElement;
+  constructor(private service: BibliaService) {}
 
-  books: {name: string,abbrev: string}[] = [];
-  book: {name: string,abbrev: string};
-  chapters: Number[] = [];
-  chapterNumber: Number;
-  verses: any[] = [];
-  idVerse: any;
-  cardSeeChapter: HTMLElement;
-  constructor(private service: BibliaService) { }
-
-  ngOnInit(): void {
+  public ngOnInit(): void {
     this.getBooks();
   }
 
-  getBooks(){
-    this.service.requestBooks().toPromise().then((data) => {
-      this.books = data;
-    } 
-    ).catch((err)=>{
-      console.error('Erro ao requisitar os Livros da Biblia: ',err);
-    });
+  public getBooks() {
+    this.service
+      .requestBooks()
+      .toPromise()
+      .then((data) => {
+        this.books = data;
+      })
+      .catch((err) => {
+        console.error('Erro ao requisitar os Livros da Biblia: ', err);
+      });
   }
 
-  getChapters(){
+  public getChapters() {
     if (this.chapters.length) {
-      this.chapters = []
+      this.chapters = [];
     }
-   this.service.requestChapters(this.book.name).toPromise().then((chaptersLength) => {
-     for(var i = 1; i < chaptersLength; i++){
-      this.chapters.push(i);
-     }
-  }).catch((err)=>{
-    console.error(`Erro ao requisitar os capitulos do livro de ${this.book.name} da Biblia: `,err);
-  });
+    this.service
+      .requestChapters(this.book.name)
+      .toPromise()
+      .then((chaptersLength) => {
+        for (let i = 1; i < chaptersLength; i++) {
+          this.chapters.push(i);
+        }
+      })
+      .catch((err) => {
+        console.error(
+          `Erro ao requisitar os capitulos do livro de ${this.book.name} da Biblia: `,
+          err,
+        );
+      });
   }
 
-  getChapter(){
+  public getChapter() {
     if (this.verses.length) {
-      this.verses = []
+      this.verses = [];
     }
-    this.service.requestChapter(this.book.name,this.chapterNumber).toPromise().then((verses) => {
-      for (const i in verses) {
-        let pos = Number(i)
-        this.verses.push({number: pos + 1 , text: verses[pos]})
-      }
-    }).catch((err)=>{
-      console.error(`Erro ao requisitar os versiculos do livro de ${this.book} capitulo ${this.chapterNumber} da Biblia: `,err)
-    }); 
+    this.service
+      .requestChapter(this.book.name, this.chapterNumber)
+      .toPromise()
+      .then((verses) => {
+        for (const i in verses) {
+          const pos = Number(i);
+          this.verses.push({ number: pos + 1, text: verses[pos] });
+        }
+      })
+      .catch((err) => {
+        console.error(
+          `Erro ao requisitar os versiculos do livro de ${this.book} capitulo ${this.chapterNumber} da Biblia: `,
+          err,
+        );
+      });
   }
 
-  view(){
-    this.cardSeeChapter =document.getElementById('cardSeeChapter')
-    this.cardSeeChapter.style.display = this.cardSeeChapter.style.display === "none"? "flex": "none";
+  public view() {
+    this.cardSeeChapter = document.getElementById('cardSeeChapter');
+    this.cardSeeChapter.style.display =
+      this.cardSeeChapter.style.display === 'none' ? 'flex' : 'none';
     /*
     if (view.parentNode.style.marginLeft === '0px') {
       view.parentNode.style.marginLeft = '-280px'
@@ -68,10 +84,9 @@ export class BibliaComponent implements OnInit {
       view.parentNode.style.marginLeft = '0px'
     }*/
   }
-  linkVerse(e){
-    this.idVerse = e
-    console.log(e)
-    alert(e)
+  public linkVerse(e) {
+    this.idVerse = e;
+    console.log(e);
+    alert(e);
   }
-
 }

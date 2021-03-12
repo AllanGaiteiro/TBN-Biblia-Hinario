@@ -1,27 +1,27 @@
 // modules
-import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatDividerModule } from '@angular/material/divider';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatIconModule } from '@angular/material/icon';
+import { MatInputModule } from '@angular/material/input';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AppRoutingModule } from './app-routing.module';
-import { HttpClientModule } from '@angular/common/http';
-import { MatButtonModule } from '@angular/material/button';
-import { MatIconModule} from '@angular/material/icon';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatSidenavModule } from '@angular/material/sidenav';
-import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatExpansionModule } from '@angular/material/expansion';
-// Components
-import { HomeComponent } from './pages/home/home.component';
+import { AppComponent } from './app.component';
 import { BibliaComponent } from './pages/biblia/biblia.component';
 import { HinarioComponent } from './pages/hinario/hinario.component';
-import { SliderComponent } from './pages/slider/slider.component';
 import { HinosComponent } from './pages/hinos/hinos.component';
-import { AppComponent } from './app.component';
+// Components
+import { HomeComponent } from './pages/home/home.component';
+import { SliderComponent } from './pages/slider/slider.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
@@ -52,6 +52,6 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     MatExpansionModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

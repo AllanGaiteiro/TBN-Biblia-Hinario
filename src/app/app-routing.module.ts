@@ -1,10 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
+import { RouterModule, Routes } from '@angular/router';
 import { BibliaComponent } from './pages/biblia/biblia.component';
 import { HinarioComponent } from './pages/hinario/hinario.component';
+import { HomeComponent } from './pages/home/home.component';
 import { SliderComponent } from './pages/slider/slider.component';
-
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,7 +13,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

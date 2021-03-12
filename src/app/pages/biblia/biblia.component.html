@@ -1,57 +1,78 @@
-  <div class="seeInfoCapitulo" *ngIf="book && chapterNumber" >
-    <button mat-flat-button style="width: 150px;color: #1280e6b6;" color="none" (click)="view()">
+<div class="seeInfoCapitulo" *ngIf="book && chapterNumber">
+  <button
+    mat-flat-button
+    style="width: 150px; color: #1280e6b6"
+    color="none"
+    (click)="view()"
+  >
     Ver Capitulo
-      <span class="material-icons" style="transform: rotate(-90deg);">
-    expand_more
+    <span class="material-icons" style="transform: rotate(-90deg)">
+      expand_more
     </span>
-    </button>
+  </button>
 
-    <div id="cardSeeChapter" >
-      <h1 *ngIf="book" class="viewLiv">{{book.name}}</h1>
-      <h1 *ngIf="chapterNumber" class="viewCap">{{chapterNumber}}</h1>
-    </div>
+  <div id="cardSeeChapter">
+    <h1 *ngIf="book" class="viewLiv">{{ book.name }}</h1>
+    <h1 *ngIf="chapterNumber" class="viewCap">{{ chapterNumber }}</h1>
   </div>
+</div>
 
 <div style="text-align: center">
-  <h1 style="font-size: 3rem;margin-bottom: 20px;margin-top: 20px;" >Biblia Sagrada</h1>
+  <h1 style="font-size: 3rem; margin-bottom: 20px; margin-top: 20px">
+    Biblia Sagrada
+  </h1>
 
-  
   <div class="d-flex">
     <div *ngIf="books" class="input-group mb-3" style="width: 400px">
       <div class="input-group-prepend">
         <label class="input-group-text" for="inputGroupSelect01">Livro</label>
       </div>
 
-      <select class="custom-select" name="selLiv" [(ngModel)]="book" (ngModelChange)="getChapters()" >
-        <option  value="Selecionar"></option>
-        <option *ngFor="let b of books" [value]="b" [ngValue]="b">{{ b.name }}</option>
+      <select
+        class="custom-select"
+        name="selLiv"
+        [(ngModel)]="book"
+        (ngModelChange)="getChapters()"
+      >
+        <option value="Selecionar"></option>
+        <option *ngFor="let b of books" [value]="b" [ngValue]="b">
+          {{ b.name }}
+        </option>
       </select>
     </div>
 
     <div *ngIf="chapters?.length && book" class="input-group mb-3">
       <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Capitulos</label>
+        <label class="input-group-text" for="inputGroupSelect01"
+          >Capitulos</label
+        >
       </div>
 
-      <select class="custom-select" name="selCap" [(ngModel)]="chapterNumber" (ngModelChange)="getChapter()">
-        <option  value="Selecionar">Selecionar</option>
-        <option *ngFor="let c of chapters" [value]="c" [ngValue]="c">{{ c }}</option>
+      <select
+        class="custom-select"
+        name="selCap"
+        [(ngModel)]="chapterNumber"
+        (ngModelChange)="getChapter()"
+      >
+        <option value="Selecionar">Selecionar</option>
+        <option *ngFor="let c of chapters" [value]="c" [ngValue]="c">
+          {{ c }}
+        </option>
       </select>
     </div>
   </div>
 </div>
 <hr />
 <table *ngIf="verses" class="table table-striped">
-  <thead>
-  </thead>
+  <thead></thead>
   <tbody>
-      <tr *ngFor="let verse of verses" id="vers-{{ verse.number }}">
-        <th scope="row">
-          <p>
-            <span style="color: red">{{ verse.number }}</span>
-            {{ verse.text }}
-          </p>
-        </th>
-      </tr>
+    <tr *ngFor="let verse of verses" id="vers-{{ verse.number }}">
+      <th scope="row">
+        <p>
+          <span style="color: red">{{ verse.number }}</span>
+          {{ verse.text }}
+        </p>
+      </th>
+    </tr>
   </tbody>
 </table>

@@ -8,9 +8,8 @@ describe('BibliaComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ BibliaComponent ]
-    })
-    .compileComponents();
+      declarations: [BibliaComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {
