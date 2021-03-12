@@ -50,11 +50,7 @@ export class BibliaComponent implements OnInit {
       .catch((err) => {
         console.error(
           `Erro ao requisitar os capitulos do livro de ${this.book.name} da Biblia: `,
-<<<<<<< HEAD
           err
-=======
-          err,
->>>>>>> staging
         );
       });
   }
@@ -75,11 +71,7 @@ export class BibliaComponent implements OnInit {
       .catch((err) => {
         console.error(
           `Erro ao requisitar os versiculos do livro de ${this.book} capitulo ${this.chapterNumber} da Biblia: `,
-<<<<<<< HEAD
           err
-=======
-          err,
->>>>>>> staging
         );
       });
   }
