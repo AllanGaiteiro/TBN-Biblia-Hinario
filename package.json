@@ -12,7 +12,9 @@
     "tslint": "./node_modules/.bin/tslint -p tslint.json",
     "tslint:fix": "yarn run tslint --fix",
     "prettier:check":"yarn prettier --check ./src",
-    "prettier:write":"yarn prettier --write ./src"
+    "prettier:write":"yarn prettier --write ./src",
+    "check":"yarn run prettier:check & yarn run lint",
+    "fix":"yarn run prettier:fix & yarn run lint:fix"
   },
   "private": true,
   "dependencies": {
