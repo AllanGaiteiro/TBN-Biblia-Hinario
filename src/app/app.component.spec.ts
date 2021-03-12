@@ -25,7 +25,7 @@ describe('AppComponent', () => {
     fixture.detectChanges();
     const compiled = fixture.nativeElement;
     expect(compiled.querySelector('.content span').textContent).toContain(
-      'biblia-hinario-app app is running!'
+      'biblia-hinario-app app is running!',
     );
   });
 });
