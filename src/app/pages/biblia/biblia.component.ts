@@ -9,8 +9,8 @@ import { BibliaService } from './biblia.service';
 export class BibliaComponent implements OnInit {
   public books: { name: string; abbrev: string }[] = [];
   public book: { name: string; abbrev: string };
-  public chapters: Number[] = [];
-  public chapterNumber: Number;
+  public chapters: number[] = [];
+  public chapterNumber: number;
   public verses: any[] = [];
   public idVerse: any;
   public cardSeeChapter: HTMLElement;
@@ -18,6 +18,9 @@ export class BibliaComponent implements OnInit {
 
   public ngOnInit(): void {
     this.getBooks();
+    const content = document.getElementById('content');
+    const seeInfoCapitulo = document.getElementById('headerChapter');
+    content.appendChild(seeInfoCapitulo);
   }
 
   public getBooks() {
@@ -47,7 +50,7 @@ export class BibliaComponent implements OnInit {
       .catch((err) => {
         console.error(
           `Erro ao requisitar os capitulos do livro de ${this.book.name} da Biblia: `,
-          err,
+          err
         );
       });
   }
@@ -68,7 +71,7 @@ export class BibliaComponent implements OnInit {
       .catch((err) => {
         console.error(
           `Erro ao requisitar os versiculos do livro de ${this.book} capitulo ${this.chapterNumber} da Biblia: `,
-          err,
+          err
         );
       });
   }

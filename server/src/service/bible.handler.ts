@@ -25,7 +25,7 @@ export const getAllBooks = (version: string):Promise<Bible['books']> => {
     })
     
 }
-export const getAllChapter = (version :string, book :string):Promise<Number> =>{
+export const getAllChapter = (version :string, book :string):Promise<number> =>{
     return new Promise((resolve,rejects)=> {
         try {
             const dataBase = dataBaseStr(version)
@@ -41,7 +41,7 @@ export const getAllChapter = (version :string, book :string):Promise<Number> =>{
     
 }
 
-export const getChapter = (version:string,book:string,chapter:Number):Promise<string[]> => {
+export const getChapter = (version:string,book:string,chapter:number):Promise<string[]> => {
     return new Promise((resolve,rejects)=> {
         try {
             const dataBase = dataBaseStr(version)

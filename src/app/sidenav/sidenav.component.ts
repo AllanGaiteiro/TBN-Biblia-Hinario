@@ -11,6 +11,7 @@ export class SidenavComponent implements OnInit {
   public fontSizeP: any;
   public paragraph: HTMLCollectionOf<HTMLParagraphElement>;
   public reason: String;
+  public expandedMenu = false;
   public shouldRun = true;
   public panelOpenState = false;
   constructor() {}

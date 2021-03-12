@@ -1,7 +1,7 @@
 p {
   font-size: 40px;
 }
-.seeInfoCapitulo {
+#seeInfoCapitulo {
   position: fixed;
   display: flex;
   left: 0px;

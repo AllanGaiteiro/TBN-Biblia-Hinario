@@ -1,9 +1,31 @@
 <div>
-  <!--
-  <header>
-    <app-navbar></app-navbar>
-  </header>
-  --->
   <app-sidenav></app-sidenav>
-  <router-outlet></router-outlet>
+  <div class="wrapper">
+    <div id="content">
+      <header class="headerContent">
+        <div class="container-fluid">
+          <button
+            type="button"
+            id="sidebarCollapse"
+            class="navbar-btn"
+            (click)="moveContent()"
+          >
+            <mat-icon>{{ matIconMenu }}</mat-icon>
+          </button>
+          <button
+            class="btn btn-dark d-inline-block d-lg-none ml-auto"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <i class="fas fa-align-justify"></i>
+          </button>
+        </div>
+      </header>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
 </div>
