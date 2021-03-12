@@ -1,42 +1,41 @@
-p{
-    font-size: 40px;
+p {
+  font-size: 40px;
 }
-#seeInfoCapitulo{
-    position: fixed;
-    display: flex;
-    left: 0px;
-    top: 70px;
-    height: 70px;
-    width: 100%;
-    transition: all 1s;
-    cursor: pointer;
-    z-index: 10;
+#seeInfoCapitulo {
+  position: fixed;
+  display: flex;
+  left: 0px;
+  top: 70px;
+  height: 70px;
+  width: 100%;
+  transition: all 1s;
+  cursor: pointer;
+  z-index: 10;
 }
-#cardSeeChapter{
-    display: flex;
-    transition: all 1s;
-}
-
-.viewLiv{
-    font-size: 3em;
-    font-weight: bold;
-    background-color: #084B8A;
-    color: white; 
-    border: 8px solid #084B8A;
-    padding: 10px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    height: 100%;
-}
-.viewCap{
-    font-size: 3em;
-    font-weight: bold;
-    background-color: white;
-    border: 8px solid #004e97;
-    color: #004e97;
-    padding: 10px;
-    padding-top: 0px;
-    padding-bottom: 0px;
-    height: 100%;
+#cardSeeChapter {
+  display: flex;
+  transition: all 1s;
 }
 
+.viewLiv {
+  font-size: 3em;
+  font-weight: bold;
+  background-color: #084b8a;
+  color: white;
+  border: 8px solid #084b8a;
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 100%;
+}
+.viewCap {
+  font-size: 3em;
+  font-weight: bold;
+  background-color: white;
+  border: 8px solid #004e97;
+  color: #004e97;
+  padding: 10px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  height: 100%;
+}
