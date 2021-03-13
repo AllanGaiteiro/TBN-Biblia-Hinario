@@ -7,10 +7,10 @@ import { Observable, throwError } from 'rxjs';
 export class HinarioService {
   private readonly api = 'https://api.vagalume.com.br/';
   constructor(private http: HttpClient) {}
-  public getParamsHino(hino) {
+  public getParamsHino(hino: string): Observable<any> {
     return this.http.get<any>(`${this.api}search.artmus?q=${hino}&limit=0`);
   }
-  public getHino(artist, song) {
+  public getHino(artist: string, song: string): Observable<any> {
     return this.http.get<any>(
       'https://api.vagalume.com.br/search.php' +
         '?art=' +

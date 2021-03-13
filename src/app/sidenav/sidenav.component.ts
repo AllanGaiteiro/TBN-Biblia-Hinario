@@ -22,12 +22,12 @@ export class SidenavComponent implements OnInit {
     this.settingFont('=');
   }
 
-  public closeSideNav(reason: string) {
+  public closeSideNav(reason: string): void {
     this.reason = reason;
     this.sidenav.close();
   }
 
-  public settingFont = (tipo: '+' | '=' | '-') => {
+  public settingFont = (tipo: '+' | '=' | '-'): void => {
     this.fontSizeP =
       tipo !== '='
         ? tipo === '+'

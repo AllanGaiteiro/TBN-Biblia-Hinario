@@ -15,7 +15,7 @@ export class HinarioComponent implements OnInit {
   constructor(private service: HinarioService) {}
 
   public ngOnInit(): void {}
-  public see(id) {
+  public see(id): void {
     const expanded = document.getElementById('hinoText-' + id);
 
     expanded.style.display =

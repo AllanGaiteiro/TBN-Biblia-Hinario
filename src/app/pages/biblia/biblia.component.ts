@@ -23,7 +23,7 @@ export class BibliaComponent implements OnInit {
     content.appendChild(seeInfoCapitulo);
   }
 
-  public getBooks() {
+  public getBooks(): void {
     this.service
       .requestBooks()
       .toPromise()
@@ -35,7 +35,7 @@ export class BibliaComponent implements OnInit {
       });
   }
 
-  public getChapters() {
+  public getChapters(): void {
     if (this.chapters.length) {
       this.chapters = [];
     }
@@ -55,7 +55,7 @@ export class BibliaComponent implements OnInit {
       });
   }
 
-  public getChapter() {
+  public getChapter(): void {
     this.service
       .requestChapter(this.book.name, this.chapterNumber)
       .toPromise()
@@ -70,7 +70,7 @@ export class BibliaComponent implements OnInit {
       });
   }
 
-  public view() {
+  public view(): void {
     this.cardSeeChapter = document.getElementById('cardSeeChapter');
     this.cardSeeChapter.style.display =
       this.cardSeeChapter.style.display === 'none' ? 'flex' : 'none';
@@ -81,7 +81,7 @@ export class BibliaComponent implements OnInit {
       view.parentNode.style.marginLeft = '0px'
     }*/
   }
-  public linkVerse(e) {
+  public linkVerse(e): void {
     this.idVerse = e;
     console.log(e);
     alert(e);

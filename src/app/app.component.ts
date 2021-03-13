@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
     this.settingFont('=');
   }
 
-  public moveContent() {
+  public moveContent(): void {
     const content = document.getElementById('content');
     const sidebar = document.getElementById('sidebar');
     if (content.style.width === '100%') {
@@ -39,12 +39,12 @@ export class AppComponent implements OnInit {
     }
   }
 
-  public closeSideNav(reason: string) {
+  public closeSideNav(reason: string): void {
     this.reason = reason;
     this.sidenav.close();
   }
 
-  public settingFont = (tipo: '+' | '=' | '-') => {
+  public settingFont = (tipo: '+' | '=' | '-'): void => {
     this.fontSizeP =
       tipo !== '='
         ? tipo === '+'
