@@ -14,13 +14,22 @@ export class BibliaComponent implements OnInit {
   public verses: string[];
   public idVerse: string;
   public cardSeeChapter: HTMLElement;
-  constructor(private service: BibliaService) {}
+  public content: HTMLElement;
+  public seeInfoCapitulo: HTMLElement;
+  constructor(private service: BibliaService) {
+    // empty
+  }
 
   public ngOnInit(): void {
+    this.content = document.getElementById('content');
+    this.seeInfoCapitulo = document.getElementById('headerChapter');
     this.getBooks();
-    const content = document.getElementById('content');
-    const seeInfoCapitulo = document.getElementById('headerChapter');
-    content.appendChild(seeInfoCapitulo);
+    this.seeChapter(this.content, this.seeInfoCapitulo);
+  }
+  public seeChapter(content: HTMLElement, seeInfoCapitulo: HTMLElement): void {
+    if (content && seeInfoCapitulo) {
+      content.appendChild(seeInfoCapitulo);
+    }
   }
 
   public getBooks(): void {

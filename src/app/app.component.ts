@@ -9,7 +9,7 @@ export class AppComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
   public title = 'biblia-hinario-app';
   public fontSizeP: number;
-  public paragraph: NodeListOf<HTMLParagraphElement>; //HTMLCollectionOf<HTMLParagraphElement>;
+  public paragraph: NodeListOf<HTMLParagraphElement>; // HTMLCollectionOf<HTMLParagraphElement>;
   public reason: string;
   public matIconMenu: 'close' | 'menu' = 'close';
   public expandedMenu = false;

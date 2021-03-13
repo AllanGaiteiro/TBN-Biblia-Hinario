@@ -16,7 +16,9 @@ export class BibliaService {
   // product
   // private readonly API = 'https://Biblia-API-Express.allangaiteiro.repl.co/biblia';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    // empty
+  }
 
   public requestBooks(): Observable<Book[]> {
     return this.http.post<Book[]>(this.api, { version: 'aa' });

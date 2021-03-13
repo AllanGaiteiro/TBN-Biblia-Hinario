@@ -6,18 +6,17 @@ import { Observable } from 'rxjs';
 })
 export class HinarioService {
   private readonly api = 'https://api.vagalume.com.br/';
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) {
+    // empty
+  }
   public getParamsHino(hino: string): Observable<any> {
     return this.http.get<any>(`${this.api}search.artmus?q=${hino}&limit=0`);
   }
   public getHino(artist: string, song: string): Observable<any> {
     return this.http.get<any>(
-      'https://api.vagalume.com.br/search.php' +
-        '?art=' +
-        artist +
-        '&mus=' +
-        song +
-        '&apikey={key}'
+      `${
+        'https://api.vagalume.com.br/search.php' + '?art='
+      }${artist}&mus=${song}&apikey={key}`
     );
   }
 }

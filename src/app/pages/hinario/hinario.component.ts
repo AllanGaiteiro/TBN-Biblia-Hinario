@@ -7,7 +7,7 @@ import { HinarioService } from './hinario.service';
   styleUrls: ['./hinario.component.css'],
 })
 export class HinarioComponent implements OnInit {
-  //public searchHinos: any[];
+  public searchHinos: any[];
   public eventSlide = false;
   public slideTitle: string;
   public slideText: string[];
@@ -20,7 +20,7 @@ export class HinarioComponent implements OnInit {
     // no-empty-function
   }
   public see(id: string | number): void {
-    const expanded = document.getElementById('hinoText-' + id);
+    const expanded = document.getElementById(`hinoText-${id}`);
     expanded.style.display =
       expanded.style.display === 'none' ? 'block' : 'none';
   }

@@ -125,6 +125,15 @@
     "use-lifecycle-interface": true,
     "use-pipe-transform-interface": true,
     "component-class-suffix": true,
-    "directive-class-suffix": true
+    "directive-class-suffix": true,
+    "no-unsafe-optional-chaining": "error",
+    "requireStringLiterals": true,
+    "no-eq-null": "error",
+    "arrow-parens": ["error", "always"],
+    "arrow-spacing": "error",
+    "no-const-assign": "error",
+    "no-var": "error",
+    "object-shorthand": "error",
+    "prefer-template": "error"
   }
 }

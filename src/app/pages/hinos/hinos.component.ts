@@ -16,6 +16,6 @@ export class HinosComponent implements //OnInit {
   constructor() {}
 
   public ngOnInit(): void {}
- 
+
 }
 */
