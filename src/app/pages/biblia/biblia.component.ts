@@ -11,7 +11,7 @@ export class BibliaComponent implements OnInit {
   public book: { name: string; abbrev: string };
   public chapters: number[] = [];
   public chapterNumber: number;
-  public verses: any[] = [];
+  public verses: string[];
   public idVerse: any;
   public cardSeeChapter: HTMLElement;
   constructor(private service: BibliaService) {}
@@ -56,17 +56,11 @@ export class BibliaComponent implements OnInit {
   }
 
   public getChapter() {
-    if (this.verses.length) {
-      this.verses = [];
-    }
     this.service
       .requestChapter(this.book.name, this.chapterNumber)
       .toPromise()
       .then((verses) => {
-        for (const i in verses) {
-          const pos = Number(i);
-          this.verses.push({ number: pos + 1, text: verses[pos] });
-        }
+        this.verses = verses;
       })
       .catch((err) => {
         console.error(

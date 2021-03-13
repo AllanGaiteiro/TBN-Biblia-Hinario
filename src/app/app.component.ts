@@ -6,11 +6,11 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent implements OnInit {
-  public title = 'biblia-hinario-app';
   @ViewChild('sidenav') public sidenav: MatSidenav;
+  public title = 'biblia-hinario-app';
   public fontSizeP: any;
-  public paragraph: HTMLCollectionOf<HTMLParagraphElement>;
-  public reason: String;
+  public paragraph: NodeListOf<HTMLParagraphElement>; //HTMLCollectionOf<HTMLParagraphElement>;
+  public reason: string;
   public matIconMenu: 'close' | 'menu' = 'close';
   public expandedMenu = false;
   public shouldRun = true;
@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
 
   public ngOnInit(): void {
     this.fontSizeP = 60;
-    this.paragraph = document.getElementsByTagName('p');
+    this.paragraph = document.querySelectorAll('p');
     this.settingFont('=');
   }
 
@@ -51,8 +51,6 @@ export class AppComponent implements OnInit {
           ? this.fontSizeP + 1
           : this.fontSizeP - 1
         : this.fontSizeP;
-    for (let i = 0; i < this.paragraph.length; i++) {
-      this.paragraph[i].style.fontSize = `${this.fontSizeP}px`;
-    }
+    this.paragraph.forEach((p) => (p.style.fontSize = `${this.fontSizeP}px`));
   };
 }

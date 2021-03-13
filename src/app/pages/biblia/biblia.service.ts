@@ -8,7 +8,7 @@ import { catchError, retry } from 'rxjs/operators';
 })
 export class BibliaService {
   // local
-  private readonly API = 'http://localhost:1200/bible/version';
+  private readonly api = 'http://localhost:1200/bible/version';
 
   // staging
   // private readonly API = 'https://staging-api-biblia.allangaiteiro.repl.co/biblia';
@@ -19,18 +19,18 @@ export class BibliaService {
   constructor(private http: HttpClient) {}
 
   public requestBooks() {
-    return this.http.post<any[]>(this.API, { version: 'aa' });
+    return this.http.post<any[]>(this.api, { version: 'aa' });
     // return this.http.get<any>('https://www.abibliadigital.com.br/api/books')
   }
   public requestChapters(book: string) {
-    return this.http.post<number>(`${this.API}/livro/`, {
+    return this.http.post<number>(`${this.api}/livro/`, {
       name: book,
       version: 'aa',
     });
     // return this.http.get<any>(`https://www.abibliadigital.com.br/api/books/${livro}`)
   }
   public requestChapter(book: string, chapterNumber: number) {
-    return this.http.post<string[]>(`${this.API}/livro/capitulo`, {
+    return this.http.post<string[]>(`${this.api}/livro/capitulo`, {
       name: book,
       chapterNumber,
       version: 'aa',

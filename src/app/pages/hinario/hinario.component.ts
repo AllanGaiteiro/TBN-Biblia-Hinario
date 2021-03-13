@@ -15,13 +15,13 @@ export class HinarioComponent implements OnInit {
   constructor(private service: HinarioService) {}
 
   public ngOnInit(): void {}
-  public Ver(id) {
+  public see(id) {
     const expanded = document.getElementById('hinoText-' + id);
 
     expanded.style.display =
-      expanded.style.display == 'none' ? 'block' : 'none';
+      expanded.style.display === 'none' ? 'block' : 'none';
   }
-
+  /*
   public getHino(hino) {
     this.service
       .getParamsHino(hino)
@@ -55,4 +55,5 @@ export class HinarioComponent implements OnInit {
     this.slideText = hino.letra;
     this.eventSlide = true;
   }
+  */
 }

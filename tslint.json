@@ -62,7 +62,7 @@
     "no-var-requires": false,
     "object-literal-key-quotes": [
       true,
-      "as-needed"
+      "as-needed",{"requireReturnForObjectLiteral": true}
     ],
     "quotemark": [
       true,

@@ -9,8 +9,8 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class SidenavComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
   public fontSizeP: any;
-  public paragraph: HTMLCollectionOf<HTMLParagraphElement>;
-  public reason: String;
+  public paragraph: NodeListOf<HTMLParagraphElement>;
+  public reason: string;
   public expandedMenu = false;
   public shouldRun = true;
   public panelOpenState = false;
@@ -18,7 +18,7 @@ export class SidenavComponent implements OnInit {
 
   public ngOnInit(): void {
     this.fontSizeP = 60;
-    this.paragraph = document.getElementsByTagName('p');
+    this.paragraph = document.querySelectorAll('p');
     this.settingFont('=');
   }
 
@@ -34,8 +34,6 @@ export class SidenavComponent implements OnInit {
           ? this.fontSizeP + 1
           : this.fontSizeP - 1
         : this.fontSizeP;
-    for (let i = 0; i < this.paragraph.length; i++) {
-      this.paragraph[i].style.fontSize = `${this.fontSizeP}px`;
-    }
+    this.paragraph.forEach((p) => (p.style.fontSize = `${this.fontSizeP}px`));
   };
 }

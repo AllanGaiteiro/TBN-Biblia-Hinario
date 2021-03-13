@@ -66,11 +66,11 @@
 <table *ngIf="verses" class="table table-striped">
   <thead></thead>
   <tbody>
-    <tr *ngFor="let verse of verses" id="vers-{{ verse.number }}">
+    <tr *ngFor="let v of verses;let i= index;" id="vers-{{ i + 1 }}" >
       <th scope="row">
         <p>
-          <span style="color: red">{{ verse.number }}</span>
-          {{ verse.text }}
+          <span style="color: red">{{ i + 1}}</span>
+          {{ v }}
         </p>
       </th>
     </tr>
