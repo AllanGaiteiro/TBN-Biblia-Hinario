@@ -1,18 +1,18 @@
 import { Component, OnInit } from '@angular/core';
 import { BibliaService } from './biblia.service';
-
+import { Book } from '../../models/Bible';
 @Component({
   selector: 'app-biblia',
   templateUrl: './biblia.component.html',
   styleUrls: ['./biblia.component.css'],
 })
 export class BibliaComponent implements OnInit {
-  public books: { name: string; abbrev: string }[] = [];
-  public book: { name: string; abbrev: string };
+  public books: Book[] = [];
+  public book: Book;
   public chapters: number[] = [];
   public chapterNumber: number;
   public verses: string[];
-  public idVerse: any;
+  public idVerse: string;
   public cardSeeChapter: HTMLElement;
   constructor(private service: BibliaService) {}
 
@@ -74,16 +74,5 @@ export class BibliaComponent implements OnInit {
     this.cardSeeChapter = document.getElementById('cardSeeChapter');
     this.cardSeeChapter.style.display =
       this.cardSeeChapter.style.display === 'none' ? 'flex' : 'none';
-    /*
-    if (view.parentNode.style.marginLeft === '0px') {
-      view.parentNode.style.marginLeft = '-280px'
-    }else{
-      view.parentNode.style.marginLeft = '0px'
-    }*/
-  }
-  public linkVerse(e): void {
-    this.idVerse = e;
-    console.log(e);
-    alert(e);
   }
 }

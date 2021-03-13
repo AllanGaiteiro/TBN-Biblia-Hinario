@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./home.component.css'],
 })
 export class HomeComponent implements OnInit {
-  constructor() {}
+  constructor() {
+    // no-empty-function
+  }
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    // no-empty-function
+  }
 }

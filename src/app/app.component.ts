@@ -8,14 +8,16 @@ import { MatSidenav } from '@angular/material/sidenav';
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
   public title = 'biblia-hinario-app';
-  public fontSizeP: any;
+  public fontSizeP: number;
   public paragraph: NodeListOf<HTMLParagraphElement>; //HTMLCollectionOf<HTMLParagraphElement>;
   public reason: string;
   public matIconMenu: 'close' | 'menu' = 'close';
   public expandedMenu = false;
   public shouldRun = true;
   public panelOpenState = false;
-  constructor() {}
+  constructor() {
+    // empty
+  }
 
   public ngOnInit(): void {
     this.fontSizeP = 60;

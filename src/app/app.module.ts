@@ -18,7 +18,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BibliaComponent } from './pages/biblia/biblia.component';
 import { HinarioComponent } from './pages/hinario/hinario.component';
-import { HinosComponent } from './pages/hinos/hinos.component';
+//import { HinosComponent } from './pages/hinos/hinos.component';
 // Components
 import { HomeComponent } from './pages/home/home.component';
 import { SliderComponent } from './pages/slider/slider.component';
@@ -31,8 +31,25 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     BibliaComponent,
     HinarioComponent,
     SliderComponent,
-    HinosComponent,
+    //HinosComponent,
     SidenavComponent,
+  ],
+  exports: [
+    MatDividerModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    NgbModule,
+    FormsModule,
+    //TooltipModule.forRoot(),
+    AppRoutingModule,
+    HttpClientModule,
+    MatExpansionModule,
   ],
   imports: [
     MatDividerModule,

@@ -8,13 +8,15 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class SidenavComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
-  public fontSizeP: any;
+  public fontSizeP: number;
   public paragraph: NodeListOf<HTMLParagraphElement>;
   public reason: string;
   public expandedMenu = false;
   public shouldRun = true;
   public panelOpenState = false;
-  constructor() {}
+  constructor() {
+    // no-empty-function
+  }
 
   public ngOnInit(): void {
     this.fontSizeP = 60;

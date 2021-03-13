@@ -7,7 +7,7 @@
     "build": "ng build",
     "test": "ng test",
     "e2e": "ng e2e",
-    "lint": "ng lint  ",
+    "lint": "ng lint",
     "lint:fix": "ng lint --fix",
     "tslint": "./node_modules/.bin/tslint -p tslint.json",
     "tslint:fix": "yarn run tslint --fix",

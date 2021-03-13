@@ -6,7 +6,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slider.component.css'],
 })
 export class SliderComponent implements OnInit {
-  constructor() {}
+  constructor() {
+    // no-empty-function
+  }
 
-  public ngOnInit(): void {}
+  public ngOnInit(): void {
+    // no-empty-function
+  }
 }

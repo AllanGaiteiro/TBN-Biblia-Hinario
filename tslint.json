@@ -56,8 +56,8 @@
     "no-construct": true,
     "no-debugger": true,
     "no-duplicate-super": true,
-    "no-empty": false,
-    "no-empty-interface": false,
+    "no-empty": true,
+    "no-empty-interface": true,
     "no-eval": true,
     "no-inferrable-types": [
       true,

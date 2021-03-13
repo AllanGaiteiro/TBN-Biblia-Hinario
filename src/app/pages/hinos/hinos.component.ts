@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
 /*
+import { Component, OnInit } from '@angular/core';
+
 @Component({
   selector: 'app-hinos',
   templateUrl: './hinos.component.html',

@@ -7,17 +7,20 @@ import { HinarioService } from './hinario.service';
   styleUrls: ['./hinario.component.css'],
 })
 export class HinarioComponent implements OnInit {
-  public searchHinos: any[];
+  //public searchHinos: any[];
   public eventSlide = false;
   public slideTitle: string;
   public slideText: string[];
 
-  constructor(private service: HinarioService) {}
+  constructor(private service: HinarioService) {
+    // no-empty-function
+  }
 
-  public ngOnInit(): void {}
-  public see(id): void {
+  public ngOnInit(): void {
+    // no-empty-function
+  }
+  public see(id: string | number): void {
     const expanded = document.getElementById('hinoText-' + id);
-
     expanded.style.display =
       expanded.style.display === 'none' ? 'block' : 'none';
   }
