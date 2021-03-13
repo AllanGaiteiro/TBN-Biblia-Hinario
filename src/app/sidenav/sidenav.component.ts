@@ -37,5 +37,5 @@ export class SidenavComponent implements OnInit {
     for (let i = 0; i < this.paragraph.length; i++) {
       this.paragraph[i].style.fontSize = `${this.fontSizeP}px`;
     }
-  }
+  };
 }

@@ -17,7 +17,7 @@ export class HinarioService {
         artist +
         '&mus=' +
         song +
-        '&apikey={key}',
+        '&apikey={key}'
     );
   }
 }
