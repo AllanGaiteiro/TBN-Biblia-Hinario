@@ -35,10 +35,13 @@ export class AppComponent implements OnInit {
   }
   visibilityHeader(): void {
     const headerChapter = document.getElementById('headerChapter');
-    headerChapter.style.display =
-      headerChapter.style.display !== 'none' ? 'none' : 'flex';
-    this.headerButton =
-      this.headerButton === 'visibility_off' ? 'visibility' : 'visibility_off';
+    if (headerChapter) {
+      headerChapter.style.display =
+        headerChapter.style.display !== 'none' ? 'none' : 'flex';
+      this.headerButton =
+        this.headerButton === 'visibility_off' ? 'visibility' : 'visibility_off';
+    }
+
   }
 
   public moveContent(): void {
