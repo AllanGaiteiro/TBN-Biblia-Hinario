@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
+// import * as HeaderComponent from '../components/header/header.component';
 
 @Component({
   selector: 'app-sidenav',
@@ -19,8 +20,7 @@ export class SidenavComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.fontSizeP = 60;
-    this.paragraph = document.querySelectorAll('p');
+    this.fontSizeP = 50;
     this.settingFont('=');
   }
 
@@ -30,12 +30,16 @@ export class SidenavComponent implements OnInit {
   }
 
   public settingFont = (tipo: '+' | '=' | '-'): void => {
+    this.paragraph = document.querySelectorAll('p');
     this.fontSizeP =
       tipo !== '='
         ? tipo === '+'
           ? this.fontSizeP + 1
           : this.fontSizeP - 1
         : this.fontSizeP;
-    this.paragraph.forEach((p) => (p.style.fontSize = `${this.fontSizeP}px`));
+    console.log(this.fontSizeP);
+    this.paragraph.forEach((p) => {
+      p.style.fontSize = `${this.fontSizeP}px`;
+    });
   };
 }
