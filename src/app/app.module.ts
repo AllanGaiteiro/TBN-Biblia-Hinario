@@ -21,7 +21,6 @@ import { HinarioComponent } from './pages/hinario/hinario.component';
 // import { HinosComponent } from './pages/hinos/hinos.component';
 // Components
 import { HomeComponent } from './pages/home/home.component';
-import { SliderComponent } from './pages/slider/slider.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
 
 @NgModule({
@@ -30,8 +29,6 @@ import { SidenavComponent } from './sidenav/sidenav.component';
     HomeComponent,
     BibliaComponent,
     HinarioComponent,
-    SliderComponent,
-    // HinosComponent,
     SidenavComponent,
   ],
   exports: [

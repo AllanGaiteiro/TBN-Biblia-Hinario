@@ -1,103 +1,108 @@
-<div
-  class="d-flex"
-  *ngIf="!eventSlide"
-  style="margin-top: 40px; margin-bottom: 40px"
->
-  <input
-    #searchInput
-    class="form-control me-2"
-    type="search"
-    placeholder="Search"
-    aria-label="Search"
-    (keyup.enter)="getHino(searchInput.value)"
-  />
-  <button class="btn btn-outline-success" (click)="getHino(searchInput.value)">
-    Search
-  </button>
-</div>
-
-<hr />
-<div class="card-container" *ngIf="searchHinos && !eventSlide">
-  <div class="accordion accordion-flush" id="accordionFlushExample">
-    <div class="accordion-item" *ngFor="let hino of searchHinos">
-      <h2 class="accordion-header" id="flush-headingOne">
-        <button
-          class="accordion-button collapsed"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#flush-collapseOne"
-          aria-expanded="false"
-          aria-controls="flush-collapseOne"
-        >
-          <h2 id="hino-{{ hino.id }}">{{ hino.title }} | {{ hino.band }}</h2>
-        </button>
-      </h2>
-      <div
-        id="flush-collapseOne"
-        class="accordion-collapse collapse"
-        aria-labelledby="flush-headingOne"
-        data-bs-parent="#accordionFlushExample"
-      >
-        <div class="accordion-body">
-          <h2>{{ hino.name }}</h2>
-          |
-          <button class="btn btn-primary" (click)="getSlide(hino)">
-            Abrir Como slide
-          </button>
-          <p *ngFor="let p of hino?.letra">{{ p }}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div *ngIf="eventSlide">
+<div id="content">
   <div
-    id="carouselExampleFade"
-    class="carousel slide carousel-fade"
-    data-bs-ride="carousel"
+    class="d-flex"
+    *ngIf="!eventSlide"
+    style="margin-top: 40px; margin-bottom: 40px"
   >
-    <div class="carousel-inner">
-      <div
-        class="carousel-item active"
-        style="background-color: red; height: 600px"
-      >
-        <div class="card-container" style="height: 100%">
-          <div class="card" style="height: 100%; text-align: center">
-            <p class="fontSlide">{{ slideTitle }}</p>
-          </div>
-        </div>
-      </div>
-      <div
-        class="carousel-item"
-        *ngFor="let text of slideText"
-        style="background-color: red; height: 600px"
-      >
-        <div class="card-container" style="height: 100%">
-          <div class="card" style="height: 100%; text-align: center">
-            <p class="fontSlide">{{ text }}</p>
+    <input
+      #searchInput
+      class="form-control me-2"
+      type="search"
+      placeholder="Search"
+      aria-label="Search"
+      (keyup.enter)="getHino(searchInput.value)"
+    />
+    <button
+      class="btn btn-outline-success"
+      (click)="getHino(searchInput.value)"
+    >
+      Search
+    </button>
+  </div>
+
+  <hr />
+  <div class="card-container" *ngIf="searchHinos && !eventSlide">
+    <div class="accordion accordion-flush" id="accordionFlushExample">
+      <div class="accordion-item" *ngFor="let hino of searchHinos">
+        <h2 class="accordion-header" id="flush-headingOne">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#flush-collapseOne"
+            aria-expanded="false"
+            aria-controls="flush-collapseOne"
+          >
+            <h2 id="hino-{{ hino.id }}">{{ hino.title }} | {{ hino.band }}</h2>
+          </button>
+        </h2>
+        <div
+          id="flush-collapseOne"
+          class="accordion-collapse collapse"
+          aria-labelledby="flush-headingOne"
+          data-bs-parent="#accordionFlushExample"
+        >
+          <div class="accordion-body">
+            <h2>{{ hino.name }}</h2>
+            |
+            <button class="btn btn-primary" (click)="getSlide(hino)">
+              Abrir Como slide
+            </button>
+            <p *ngFor="let p of hino?.letra">{{ p }}</p>
           </div>
         </div>
       </div>
     </div>
-    <a
-      class="carousel-control-prev"
-      href="#carouselExampleFade"
-      role="button"
-      data-bs-slide="prev"
-    >
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </a>
-    <a
-      class="carousel-control-next"
-      href="#carouselExampleFade"
-      role="button"
-      data-bs-slide="next"
-    >
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </a>
   </div>
-  <button (click)="eventSlide = false">Sair</button>
+
+  <div *ngIf="eventSlide">
+    <div
+      id="carouselExampleFade"
+      class="carousel slide carousel-fade"
+      data-bs-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div
+          class="carousel-item active"
+          style="background-color: red; height: 600px"
+        >
+          <div class="card-container" style="height: 100%">
+            <div class="card" style="height: 100%; text-align: center">
+              <p class="fontSlide">{{ slideTitle }}</p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="carousel-item"
+          *ngFor="let text of slideText"
+          style="background-color: red; height: 600px"
+        >
+          <div class="card-container" style="height: 100%">
+            <div class="card" style="height: 100%; text-align: center">
+              <p class="fontSlide">{{ text }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <a
+        class="carousel-control-prev"
+        href="#carouselExampleFade"
+        role="button"
+        data-bs-slide="prev"
+      >
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </a>
+      <a
+        class="carousel-control-next"
+        href="#carouselExampleFade"
+        role="button"
+        data-bs-slide="next"
+      >
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </a>
+    </div>
+    <button (click)="eventSlide = false">Sair</button>
+  </div>
 </div>

@@ -1,3 +1,4 @@
+import { BibliaComponent } from './pages/biblia/biblia.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSidenav } from '@angular/material/sidenav';
 @Component({
@@ -7,11 +8,18 @@ import { MatSidenav } from '@angular/material/sidenav';
 })
 export class AppComponent implements OnInit {
   @ViewChild('sidenav') public sidenav: MatSidenav;
+  @ViewChild('biblia') public biblia: BibliaComponent;
   public title = 'biblia-hinario-app';
+  content: HTMLElement;
+  headerChapter: HTMLElement;
+  sidebar: HTMLElement;
+  headerContent: HTMLElement;
+
   public fontSizeP: number;
   public paragraph: NodeListOf<HTMLParagraphElement>; // HTMLCollectionOf<HTMLParagraphElement>;
   public reason: string;
-  public matIconMenu: 'close' | 'menu' = 'close';
+  public matIconMenu: 'keyboard_return' | 'keyboard_tab' = 'keyboard_return';
+  public headerButton: 'visibility' | 'visibility_off' = 'visibility';
   public expandedMenu = false;
   public shouldRun = true;
   public panelOpenState = false;
@@ -20,24 +28,46 @@ export class AppComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.fontSizeP = 60;
+    this.fontSizeP = 50;
     this.paragraph = document.querySelectorAll('p');
+
     this.settingFont('=');
+  }
+  visibilityHeader(): void {
+    const headerChapter = document.getElementById('headerChapter');
+    headerChapter.style.display =
+      headerChapter.style.display !== 'none' ? 'none' : 'flex';
+    this.headerButton =
+      this.headerButton === 'visibility_off' ? 'visibility' : 'visibility_off';
   }
 
   public moveContent(): void {
-    const content = document.getElementById('content');
     const sidebar = document.getElementById('sidebar');
-    if (content.style.width === '100%') {
-      content.style.width = '80%';
-      content.style.marginLeft = '20%';
-      sidebar.style.left = '0px';
-      this.matIconMenu = 'close';
-    } else {
-      content.style.width = '100%';
-      content.style.marginLeft = '0%';
-      sidebar.style.left = '-20%';
-      this.matIconMenu = 'menu';
+    const headerChapter = document.getElementById('headerChapter');
+    const content = document.getElementById('content');
+    const headerContent = document.getElementById('headerContent');
+    if (!!content && !!sidebar && !!headerContent) {
+      if (content.style.width === '100%') {
+        if (!!headerChapter) {
+          headerChapter.style.width = '80%';
+          headerChapter.style.left = '20%';
+        }
+        content.style.width = '80%';
+        content.style.marginLeft = '20%';
+        sidebar.style.left = '0px';
+        headerContent.style.left = '20%';
+        this.matIconMenu = 'keyboard_return';
+      } else {
+        if (!!headerChapter) {
+          headerChapter.style.width = '100%';
+          headerChapter.style.left = '0%';
+        }
+        content.style.width = '100%';
+        content.style.marginLeft = '0%';
+        sidebar.style.left = '-20%';
+        headerContent.style.left = '0%';
+        this.matIconMenu = 'keyboard_tab';
+      }
     }
   }
 
