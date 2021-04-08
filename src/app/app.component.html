@@ -1,16 +1,30 @@
-
 <div>
-  <header>
-    <app-navbar></app-navbar>
-  </header>
-  
-  <div class="container">
-    <router-outlet></router-outlet>
+  <app-sidenav></app-sidenav>
+  <div>
+    <header id="headerContent">
+      <div class="container-fluid">
+        <button
+          type="button"
+          id="sidebarCollapse"
+          class="navbar-btn"
+          (click)="moveContent()"
+        >
+          <mat-icon>{{ matIconMenu }}</mat-icon>
+        </button>
+      </div>
+      <div class="container-fluid">
+        <button
+          type="button"
+          id="sidebarCollapse"
+          class="navbar-btn"
+          (click)="visibilityHeader()"
+        >
+          <mat-icon> {{ headerButton }} </mat-icon>
+        </button>
+      </div>
+    </header>
+    <div>
+      <router-outlet></router-outlet>
+    </div>
   </div>
-  <footer>
-    <app-footer></app-footer>
-  </footer>
-  
 </div>
-
-  

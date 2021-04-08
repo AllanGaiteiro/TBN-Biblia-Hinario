@@ -26,7 +26,7 @@
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
-              "src/styles.css"
+              "./src/styles.css"
             ],
             "scripts": []
           },
@@ -96,15 +96,11 @@
           }
         },
         "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
+          "builder": "@angular-eslint/builder:lint",
           "options": {
-            "tsConfig": [
-              "tsconfig.app.json",
-              "tsconfig.spec.json",
-              "e2e/tsconfig.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
+            "lintFilePatterns": [
+              "src/**/*.ts",
+              "src/**/*.html"
             ]
           }
         },
@@ -123,5 +119,8 @@
       }
     }
   },
-  "defaultProject": "biblia-hinario-app"
+  "defaultProject": "biblia-hinario-app",
+  "cli": {
+    "analytics": "862855b6-08d5-4298-a7ff-a516dde5800a"
+  }
 }

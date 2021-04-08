@@ -1,0 +1,10 @@
+# Ignore artifacts:
+api
+dist
+build
+node_modules
+server/node_modules
+server/build
+
+*.css
+*.scss

@@ -1,57 +1,69 @@
-<div style="text-align: center">
-  <h1 style="font-size: 3rem;margin-bottom: 20px;margin-top: 20px;" >Biblia Sagrada</h1>
-  <div class="view" (click)="view($event.target)" *ngIf="livrosAll && livro && capitulo">
-    <h1 class="viewLiv">{{livro.name}}</h1>
-    <h1 class="viewCap">{{capitulo}}</h1>
-  </div>
-  <div class="d-flex">
-    <div *ngIf="livrosAll" class="input-group mb-3" style="width: 400px">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Livro</label>
-      </div>
-
-      <select class="custom-select" name="selLiv" (change)="getAllCaptulo($event.target.value)">
-        <option  value="Selecionar"></option>
-        <option *ngFor="let l of livrosAll" [value]="l.abbrev.pt">{{ l.name }}</option>
-      </select>
-    </div>
-
-    <div *ngIf="allCapitulos && livro" class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Capitulos</label>
-      </div>
-
-      <select class="custom-select" name="selCap" (change)="getCaptulo(livro.abbrev.pt, $event.target.value)">
-        <option  value="Selecionar">Selecionar</option>
-        <option *ngFor="let c of allCapitulos" [value]="c">{{ c }}</option>
-      </select>
-    </div>
-    <!---- Em tEste
-    <div *ngIf="allCapitulos && livro && allVersiculos" class="input-group mb-3">
-      <div class="input-group-prepend">
-        <label class="input-group-text" for="inputGroupSelect01">Versiculos</label>
-      </div>
-      <a (href)="'#vers-'+idVerse">
-        <select class="custom-select" name="selCap" (change)="linkVerse($event.target.value)">
-        <option  value="Selecionar">Selecionar</option>
-        <option *ngFor="let verse of allVersiculos" [value]="verse.numero" >{{verse.numero }}</option>
-      </select>
-      </a>
-    </div>---->
+<div id="headerChapter" *ngIf="book && chapterNumber">
+  <div id="cardSeeChapter">
+    <h1 *ngIf="book" class="viewLivCap">
+      livro de {{ book.name }} - cap {{ chapterNumber }}
+    </h1>
   </div>
 </div>
-<hr />
-<table *ngIf="allVersiculos" class="table table-striped">
-  <thead>
-  </thead>
-  <tbody>
-      <tr *ngFor="let verse of allVersiculos" id="vers-{{ verse.number }}">
+
+<div id="content">
+  <div style="text-align: center">
+    <h1 style="font-size: 3rem; margin-bottom: 20px; margin-top: 20px">
+      Biblia Sagrada
+    </h1>
+
+    <div class="d-flex">
+      <div *ngIf="books" class="input-group mb-3" style="width: 400px">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01">Livro</label>
+        </div>
+
+        <select
+          class="custom-select"
+          name="selLiv"
+          [(ngModel)]="book"
+          (ngModelChange)="getChapters()"
+        >
+          <option value="Selecionar"></option>
+          <option *ngFor="let b of books" [value]="b" [ngValue]="b">
+            {{ b.name }}
+          </option>
+        </select>
+      </div>
+
+      <div *ngIf="chapters?.length && book" class="input-group mb-3">
+        <div class="input-group-prepend">
+          <label class="input-group-text" for="inputGroupSelect01"
+            >Capitulos</label
+          >
+        </div>
+
+        <select
+          class="custom-select"
+          name="selCap"
+          [(ngModel)]="chapterNumber"
+          (ngModelChange)="getChapter()"
+        >
+          <option value="Selecionar">Selecionar</option>
+          <option *ngFor="let c of chapters" [value]="c" [ngValue]="c">
+            {{ c }}
+          </option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <hr />
+  <table *ngIf="verses" class="table table-striped">
+    <thead></thead>
+    <tbody>
+      <tr *ngFor="let v of verses; let i = index" id="vers-{{ i + 1 }}">
         <th scope="row">
           <p>
-            <span style="color: red">{{ verse.number }}</span>
-            {{ verse.text }}
+            <span style="color: red">{{ i + 1 }}</span>
+            {{ v }}
           </p>
         </th>
       </tr>
-  </tbody>
-</table>
+    </tbody>
+  </table>
+</div>

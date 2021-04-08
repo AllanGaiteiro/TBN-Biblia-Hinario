@@ -8,9 +8,8 @@ describe('HinosComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HinosComponent ]
-    })
-    .compileComponents();
+      declarations: [HinosComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

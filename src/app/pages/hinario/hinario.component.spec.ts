@@ -8,9 +8,8 @@ describe('HinarioComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ HinarioComponent ]
-    })
-    .compileComponents();
+      declarations: [HinarioComponent],
+    }).compileComponents();
   });
 
   beforeEach(() => {

@@ -1,83 +1,87 @@
 import { Component, OnInit } from '@angular/core';
 import { BibliaService } from './biblia.service';
-
-
+import { Book } from '../../models/Bible';
 @Component({
   selector: 'app-biblia',
   templateUrl: './biblia.component.html',
-  styleUrls: ['./biblia.component.css']
+  styleUrls: ['./biblia.component.css'],
 })
 export class BibliaComponent implements OnInit {
-
-  livrosAll: any;
-  livro: any
-  allCapitulos: any = [];
-  capitulo: any;
-  allVersiculos: any = [];
-  idVerse: any;
-  constructor(private service: BibliaService) { }
-
-  ngOnInit(): void {
-    this.livros()
+  public books: Book[] = [];
+  public book: Book;
+  public chapters: number[] = [];
+  public chapterNumber: number;
+  public verses: string[];
+  public idVerse: string;
+  public cardSeeChapter: HTMLElement;
+  public content: HTMLElement;
+  public seeInfoCapitulo: HTMLElement;
+  constructor(private service: BibliaService) {
+    // empty
   }
 
-  livros(){
-    this.livrosAll = []
-    this.service.getAllLivros().toPromise().then((data) => {
-      this.livrosAll = data
-    } 
-    )
+  public ngOnInit(): void {
+    this.content = document.getElementById('content');
+    this.seeInfoCapitulo = document.getElementById('headerChapter');
+    this.getBooks();
+    this.seeChapter(this.content, this.seeInfoCapitulo);
   }
-  getAllCaptulo(livro){
+  public seeChapter(content: HTMLElement, seeInfoCapitulo: HTMLElement): void {
+    if (content && seeInfoCapitulo) {
+      content.appendChild(seeInfoCapitulo);
+    }
+  }
 
-    console.log(livro)
-    this.livro = livro
-    this.allCapitulos = []
-    /*
-    this.service.getAllCapitulos(livro).toPromise().then((capitulos) => {
-      capitulos.map(c => {
-        (c > 0)? this.allCapitulos.push(c): null;
+  public getBooks(): void {
+    this.service
+      .requestBooks()
+      .toPromise()
+      .then((data) => {
+        this.books = data;
       })
-      
-    } 
-    )
-    */
-   console.log(livro)
-   this.service.getAllCapitulos(livro).toPromise().then((l) => {
-     for(var i = 1; i< l.chapters; i++){
-      this.livro = l
-      this.allCapitulos.push(i)
-     }
-  } 
-  )
-
-
+      .catch((err) => {
+        console.error('Erro ao requisitar os Livros da Biblia: ', err);
+      });
   }
-  getCaptulo(livro,capitulo){
-    this.capitulo = capitulo
-    this.allVersiculos = []
-    this.service.getCapitulo(livro,capitulo).toPromise().then((allVersiculos) => {
-      allVersiculos.verses.map(v => {
-        this.allVersiculos.push({number: v.number, text: v.text})
+
+  public getChapters(): void {
+    if (this.chapters.length) {
+      this.chapters = [];
+    }
+    this.service
+      .requestChapters(this.book.name)
+      .toPromise()
+      .then((chaptersLength) => {
+        for (let i = 1; i < chaptersLength; i++) {
+          this.chapters.push(i);
+        }
       })
-      
-    })
-     
+      .catch((err) => {
+        console.error(
+          `Erro ao requisitar os capitulos do livro de ${this.book.name} da Biblia: `,
+          err
+        );
+      });
   }
 
-  view(view){
-    view.parentNode.style.display = "none"
-    /*
-    if (view.parentNode.style.marginLeft === '0px') {
-      view.parentNode.style.marginLeft = '-280px'
-    }else{
-      view.parentNode.style.marginLeft = '0px'
-    }*/
-  }
-  linkVerse(e){
-    this.idVerse = e
-    console.log(e)
-    alert(e)
+  public getChapter(): void {
+    this.service
+      .requestChapter(this.book.name, this.chapterNumber)
+      .toPromise()
+      .then((verses) => {
+        this.verses = verses;
+      })
+      .catch((err) => {
+        console.error(
+          `Erro ao requisitar os versiculos do livro de ${this.book} capitulo ${this.chapterNumber} da Biblia: `,
+          err
+        );
+      });
   }
 
+  public view(): void {
+    this.cardSeeChapter = document.getElementById('cardSeeChapter');
+    this.cardSeeChapter.style.display =
+      this.cardSeeChapter.style.display === 'none' ? 'flex' : 'none';
+  }
 }

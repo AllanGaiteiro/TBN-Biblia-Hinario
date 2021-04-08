@@ -1,4 +1,7 @@
-<!----<div class="d-flex" *ngIf="!eventSlide" style="margin-top: 40px;margin-bottom: 40px;">
+<div id="content"></div>
+<!----
+    
+    <div class="d-flex" *ngIf="!eventSlide" style="margin-top: 40px;margin-bottom: 40px;">
     <input #searchInput class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
         (keyup.enter)="getHino(searchInput.value)">
     <button class="btn btn-outline-success" (click)="getHino(searchInput.value)">Search</button>
