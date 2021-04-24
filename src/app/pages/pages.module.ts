@@ -3,6 +3,9 @@
 import { BibliaComponent } from './biblia/biblia.component';
 import { HomeComponent } from './home/home.component';
 import { NgModule } from '@angular/core';
+import { AngularMaterialModule } from '../angular.material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
     declarations: [
@@ -14,6 +17,10 @@ import { NgModule } from '@angular/core';
 
     ],
     imports: [
+        CommonModule,
+        FormsModule,
+        ReactiveFormsModule,
+        AngularMaterialModule,
     ]
 })
 

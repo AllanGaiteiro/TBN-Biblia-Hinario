@@ -12,11 +12,17 @@ import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SidenavComponent } from './sidenav/sidenav.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MatSliderComponent } from './shared/mat-slider/mat-slider.component';
 @NgModule({
   declarations: [
     AppComponent,
 
     SidenavComponent,
+
+    HeaderComponent,
+
+    MatSliderComponent,
   ],
   exports: [
     MatFormFieldModule,

@@ -8,8 +8,9 @@ import { MatSidenav } from '@angular/material/sidenav';
   styleUrls: ['./sidenav.component.scss'],
 })
 export class SidenavComponent implements OnInit {
-  @ViewChild('sidenav') public sidenav: MatSidenav;
-  public fontSizeP: number;
+  // @ViewChild('sidenav') public sidenav: MatSidenav;
+
+  public fontSizePx: number;
   public paragraph: NodeListOf<HTMLParagraphElement>;
   public reason: string;
   public expandedMenu = false;
@@ -20,26 +21,17 @@ export class SidenavComponent implements OnInit {
   }
 
   public ngOnInit(): void {
-    this.fontSizeP = 50;
-    this.settingFont('=');
+    this.fontSizePx = 60;
+    this.setFontSize(this.fontSizePx);
   }
 
-  public closeSideNav(reason: string): void {
-    this.reason = reason;
-    this.sidenav.close();
-  }
 
-  public settingFont = (tipo: '+' | '=' | '-'): void => {
+
+  public setFontSize = (value: number): void => {
     this.paragraph = document.querySelectorAll('p');
-    this.fontSizeP =
-      tipo !== '='
-        ? tipo === '+'
-          ? this.fontSizeP + 1
-          : this.fontSizeP - 1
-        : this.fontSizeP;
-    console.log(this.fontSizeP);
+    console.log(value);
     this.paragraph.forEach((p) => {
-      p.style.fontSize = `${this.fontSizeP}px`;
+      p.style.fontSize = `${value}px`;
     });
   };
 }
