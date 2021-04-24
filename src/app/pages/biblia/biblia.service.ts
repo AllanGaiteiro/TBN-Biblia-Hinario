@@ -8,13 +8,13 @@ import { Book } from '../../models/Bible';
 })
 export class BibliaService {
   // local
-  private readonly api = 'http://localhost:1200/bible/version';
+  // private readonly api = 'http://localhost:1200/bible/version';
 
   // staging
-  // private readonly API = 'https://staging-api-biblia.allangaiteiro.repl.co/biblia';
+  // private readonly api = 'https://staging-server-tbn-1.allangaiteiro.repl.co/bible/version';
 
   // product
-  // private readonly API = 'https://Biblia-API-Express.allangaiteiro.repl.co/biblia';
+   private readonly api = 'https://prod-server-tbn.allangaiteiro.repl.co/bible/version';
 
   constructor(private http: HttpClient) {
     // empty

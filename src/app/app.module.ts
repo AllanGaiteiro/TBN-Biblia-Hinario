@@ -17,11 +17,8 @@ import { MatSliderComponent } from './shared/mat-slider/mat-slider.component';
 @NgModule({
   declarations: [
     AppComponent,
-
     SidenavComponent,
-
     HeaderComponent,
-
     MatSliderComponent,
   ],
   exports: [
