@@ -9,64 +9,18 @@
     </li>
     <li>
       <a routerLink="/biblia">Biblia</a>
-      <!---
-                <a href="#">About</a>
-                <a href="#pageSubmenu" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Pages</a>
-                <ul class="collapse list-unstyled" id="pageSubmenu">
-                    <li>
-                        <a href="#">Page 1</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Page 3</a>
-                    </li>
-                </ul>
-                -->
-    </li>
-    <li>
-      <a>Busca Hinário (Beta)</a>
     </li>
     <mat-accordion>
-      <mat-expansion-panel
-        (opened)="panelOpenState = true"
-        (closed)="panelOpenState = false"
-      >
+      <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
         <mat-expansion-panel-header style="background-color: #6d7fcc">
           <mat-panel-title style="color: white">
             Configurações
           </mat-panel-title>
         </mat-expansion-panel-header>
         <br />
-        <div class="d-flex" style="margin: 0px">
-          <span
-            class="material-icons md-48"
-            style="font-size: 36px; color: #1280e6b6"
-            (click)="settingFont('-')"
-          >
-            indeterminate_check_box
-          </span>
-          <mat-form-field
-            style="vertical-align: middle; width: 70px; text-align: center"
-          >
-            <mat-label>Tamanho</mat-label>
-            <input
-              matInput
-              style="background-color: white"
-              [(ngModel)]="fontSizeP"
-              (change)="settingFont('=')"
-              [value]="fontSizeP"
-            />
-          </mat-form-field>
-          <span
-            style="margin: auto"
-            class="material-icons md-48"
-            style="font-size: 36px; color: #1280e6b6"
-            (click)="settingFont('+')"
-          >
-            add_box
-          </span>
+        <div >
+          <app-mat-slider [(size)]="fontSizePx" (sizeChange)="setFontSize($event)">
+          </app-mat-slider>
         </div>
         <br />
       </mat-expansion-panel>

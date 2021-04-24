@@ -105,7 +105,7 @@
         ],
         "constructor-super": "error",
         "curly": "error",
-        "eol-last": "error",
+        //"eol-last": "error",
         "eqeqeq": [
             "error",
             "smart"

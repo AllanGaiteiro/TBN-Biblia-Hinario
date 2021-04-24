@@ -1,0 +1,9 @@
+<mat-grid-list cols="4" rowHeight="30">
+    <mat-grid-tile [colspan]="3" [rowspan]="1">
+        <mat-slider color="primary"  [min]="50" [max]="80" tickInterval="auto" [(ngModel)]="sliderValue" (change)="setSize($event)" ></mat-slider>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+        <button *ngIf="sliderValue"  mat-raised-button color="primary">{{sliderValue}}</button>
+    </mat-grid-tile>
+
+</mat-grid-list>
